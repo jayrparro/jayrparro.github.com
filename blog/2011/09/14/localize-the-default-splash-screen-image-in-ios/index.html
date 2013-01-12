@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello Octopress - Jayr Parro</title>
+  <title>Localize the Default splash screen image in iOS - Jayr Parro</title>
   <meta name="author" content="Jayr Parro">
 
   
-  <meta name="description" content="New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.
-">
+  <meta name="description" content="Apple Official Documentation: An iOS application should be internationalized and have a language.lproj directory for each language it supports. In &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/">
+  <link rel="canonical" href="http://jayrparro.github.com/blog/2011/09/14/localize-the-default-splash-screen-image-in-ios/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello Octopress</h1>
+      <h1 class="entry-title">Localize the Default Splash Screen Image in iOS</h1>
     
     
       <p class="meta">
@@ -94,14 +93,37 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2011-09-14T00:00:00+08:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.</p>
+<div class="entry-content"><p><a href="href=%22http://developer.apple.com/library/IOS/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BuildTimeConfiguration/BuildTimeConfiguration.html">Apple Official Documentation:</a></p>
+
+<blockquote><p>An iOS application should be internationalized and have a language.lproj directory for each language it supports. In addition to providing localized versions of your application&rsquo;s custom resources, you can also localize your application icon, launch images, and Settings icon by placing files with the same name in your language-specific project directories. Even if you provide localized versions, however, include a default version of these files at the top level of your application bundle. The default version is used when a specific localization is not available.</p></blockquote>
+
+<p>Procedures: <br/>
+(note: &#8220;X&#8221; stands for either Landscape, Portrait, iPhone, iPad suffixes)</p>
+
+<ol>
+<li>Add the Default-X.png image on your Xcode project. I&#8217;ve put this file under the &#8220;Supporting Files&#8221; group. It should be on the top level of the application bundle</li>
+<li>Click Default-X.png. Then, select the Identity inspector.</li>
+<li>Select the drop down Localization tab. From there, you can select which language to localized for this image.</li>
+<li>First, I&#8217;ve select English. Then, browse to the en.lproj folder put the correct English Default splash screen image</li>
+<li>In my case I&#8217;ve localized it to Russian. Select again the localization tab and click &#8220;+&#8221;, add the Russian language. Then, browse to the rus.lproj folder to put the correct Russian default spash screen image.</li>
+</ol>
+
+
+<p>Pls. do note Localized resources are placed in subdirectories with an ISO 639-1 language abbreviation for a name plus an .lproj suffix. (For example, the en.lproj, fr.lproj, and es.lproj directories contain resources localized for English, French, and Spanish.) For more information, see <a href="http://developer.apple.com/library/IOS/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BuildTimeConfiguration/BuildTimeConfiguration.html#//apple_ref/doc/uid/TP40007072-CH7-SW3">Internationalizing Your Application.</a></p>
+
+<p>Screenshots:</p>
+
+<p><img src="/images/blog_images/Screen_shot_2011-09-15_at_PM_12.15.07.png"><br/>
+<img src="/images/blog_images/Screen_shot_2011-09-15_at_PM_12.18.57.png"></p>
+
+<p>From there, you can find your way! :)</p>
 </div>
 
 
@@ -124,7 +146,7 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2011-09-14T00:00:00+08:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
       
 
 
@@ -132,7 +154,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2011/09/14/localize-the-default-splash-screen-image-in-ios/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2011/09/14/localize-the-default-splash-screen-image-in-ios/" >Tweet</a>
   
   
   
@@ -141,8 +163,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/" title="Previous Post: Adding drop shadow effect in a View">&laquo; Adding drop shadow effect in a View</a>
+        <a class="basic-alignment left" href="/blog/2011/09/12/ios-debugging-magic/" title="Previous Post: iOS Debugging Magic">&laquo; iOS Debugging Magic</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2011/10/18/invoke-facetime-in-app/" title="Next Post: Invoke Facetime in-app">Invoke Facetime in-app &raquo;</a>
       
     </p>
   </footer>

@@ -4,7 +4,7 @@
   <title><![CDATA[Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-01-12T02:27:40+08:00</updated>
+  <updated>2013-01-13T02:53:28+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -19,6 +19,554 @@
     <updated>2013-01-12T02:01:00+08:00</updated>
     <id>http://jayrparro.github.com/blog/2013/01/12/hello-octopress</id>
     <content type="html"><![CDATA[<p>New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Adding drop shadow effect in a View]]></title>
+    <link href="http://jayrparro.github.com/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/"/>
+    <updated>2012-07-28T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2012/07/28/adding-drop-shadow-effect-in-a-view</id>
+    <content type="html"><![CDATA[<p>A simple implementation of adding a drop shadow effect in a view instead of using “extra” shadow images.</p>
+
+<p>.h file:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="err">\#</span><span class="n">import</span> <span class="o">&lt;</span><span class="n">QuartzCore</span><span class="o">/</span><span class="n">QuartzCore</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>.m file:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'> <span class="c1">// add drop shadow</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">masksToBounds</span> <span class="o">=</span> <span class="n">NO</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOffset</span> <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// round corner</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowRadius</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOpacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="nl">bezierPathWithRect:</span><span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">bounds</span><span class="p">].</span><span class="n">CGPath</span><span class="p">;</span> <span class="c1">// drawing optimization</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Initial View:<br/>
+<img src="http://jayrparro.github.com/images/blog_images/initView.png.scaled500.png"></p>
+
+<p>Output View:<br/>
+<img src="http://jayrparro.github.com/images/blog_images/outView.png.scaled500.png"></p>
+
+<p>You can download the code <a href="https://github.com/jayrparro/Labs/tree/master/DropShadow">here</a>.</p>
+
+<p>Happy Coding! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stretchable Images in iOS 5]]></title>
+    <link href="http://jayrparro.github.com/blog/2012/05/17/stretchable-images-in-ios-5/"/>
+    <updated>2012-05-17T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2012/05/17/stretchable-images-in-ios-5</id>
+    <content type="html"><![CDATA[<p>In iOS 5, working with UIImage <em>stretchableImageWithLeftCapWidth:topCapHeight:</em> is deprecated; in which I&#8217;ve used it heavily to reduced app size, dynamic variable-width buttons, and less image files added in the project.</p>
+
+<p><strong>stretchableImageWithLeftCapWidth:topCapHeight:  </strong></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// Creates and returns a new image object with the specified cap values   </span>
+</span><span class='line'><span class="c1">// (Deprecated in iOS 5.0. Deprecated.   </span>
+</span><span class='line'><span class="c1">// Use the resizableImageWithCapInsets: instead,   </span>
+</span><span class='line'><span class="c1">// specifying cap insets such that the interior is a 1x1 area.)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">stretchableImageWithLeftCapWidth:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">leftCapWidth</span> <span class="nf">topCapHeight:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">topCapHeight</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, looking forward to support stretchable images in iOS 5, we&#8217;ll have to use this new method</p>
+
+<p><strong>resizableImageWithCapInsets:</strong></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'>
+</span><span class='line'><span class="c1">// Creates and returns a new image object with the specified cap insets.  </span>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">resizableImageWithCapInsets:</span><span class="p">(</span><span class="n">UIEdgeInsets</span><span class="p">)</span><span class="nv">capInsets</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Parameters</strong> <br/>
+capInsets - The values to use for the cap insets.</p>
+
+<p>Return Value - A new image object with the specified cap insets.</p>
+
+<p><strong>Discussion</strong> - <br/>
+You use this method to add cap insets to an image or to change the existing cap insets of an image. In both cases, you get back a new image and the original image remains untouched.</p>
+
+<p>During scaling or resizing of the image, areas covered by a cap are not scaled or resized. Instead, the pixel area not covered by the cap in each direction is tiled, left-to-right and top-to-bottom, to resize the image. This technique is often used to create variable-width buttons, which retain the same rounded corners but whose center region grows or shrinks as needed. For best performance, use a tiled area that is a 1x1 pixel area in size.</p>
+
+<blockquote><p>As noted in the documentation, cap insets of the image are pixel area that are not affected when the image is scaled or resized dynamically. The pixels beyond the cap area are being tiled.</p></blockquote>
+
+<p>In this example, I&rsquo;ve use this image with dimension of 12 (width) x 43 (height) pixels. You need to check in Photoshop the actual cap pixels area (or should ask your designer). The sample image I&rsquo;ve use has rounded corner in the top, which is specifically, 6 pixels width, and that&rsquo;s the cap area that I don&rsquo;t want to be scaled/resized.</p>
+
+<p><img src="http://jayrparro.github.com/images/blog_images/blue-header-frame.jpg.scaled500.jpg"></p>
+
+<p>In pre-iOS 5, we&rsquo;ve use the stretchableImageWithLeftCapWidth:topCapHeight:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// note- stretchableImageWithLeftCapWidth deprecated in iOS 5</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">image1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span> <span class="n">FILE_IMG_BLUE_HEADER</span><span class="p">]</span> <span class="nl">stretchableImageWithLeftCapWidth:</span><span class="mf">6.0</span> <span class="nl">topCapHeight:</span><span class="mf">0.0</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">UIImageView</span><span class="o">*</span> <span class="n">imageView1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage:</span><span class="n">image1</span><span class="p">];</span>
+</span><span class='line'><span class="n">imageView1</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview:</span><span class="n">imageView1</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The value parameter stretchableImageWithLeftCapWidth:6.0 is the left cap width pixel (6 pixels width as noted in our sample image).</p>
+
+<p>In iOS 5+ onwards, we use resizableImageWithCapInsets:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// note- resizableImageWithCapInsets use in iOS 5+</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">imageView3</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span> <span class="n">FILE_IMG_BLUE_HEADER</span><span class="p">]</span> <span class="nl">resizableImageWithCapInsets:</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&#8217;ve put a value for UIEdgeInsetsMake for both <em>left</em> and <em>right</em> which is 6-pixels cap width. Then, UIEdgeInsetsMake returns a UIEdgeInsets data struct-</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'>
+</span><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">CGFloat</span> <span class="n">top</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="n">UIEdgeInsets</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Output:</p>
+
+<ol>
+<li>An imageView in which the image is just stretch and&nbsp;<em>no</em>cap/tiled being applied. It looks ugly.</li>
+<li>An imageView in which the image is stretch and cap/tiled pixels are applied. The imageView is added in the view programmatically.</li>
+<li>The image is stretch and cap/tiled pixels are applied. The imageView is added via an outlet.</li>
+</ol>
+
+
+<p>Screenshot:<br/>
+<img src="http://jayrparro.github.com/images/blog_images/Screen_Shot_2012-05-16_at_6.13.08_PM.png.scaled500.png"></p>
+
+<p>You can download the sample code <a href="https://github.com/jayrparro/Labs/tree/master/StretchableImage">here</a>.</p>
+
+<p>Happy Coding! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git 101]]></title>
+    <link href="http://jayrparro.github.com/blog/2012/04/14/git-101/"/>
+    <updated>2012-04-14T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2012/04/14/git-101</id>
+    <content type="html"><![CDATA[<p>Just to share my Git 101 Presentation.</p>
+
+
+<p></p>
+
+<div style=""><strong style="display: block; margin: 12px 0 4px;"><a href="http://www.slideshare.net/jayrparro/git-101-12537505" title="Git 101" target="_blank">Git 101</a></strong> <iframe scrolling="no" marginheight="0" marginwidth="0" src="http://www.slideshare.net/slideshow/embed_code/12537505" frameborder="0" height="355" width="425"></iframe>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/jayrparro" target="_blank">PowerPoint</a> from <a href="http://www.slideshare.net/jayrparro" target="_blank">jayrparro</a></div>
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iPad as Second Monitor Display]]></title>
+    <link href="http://jayrparro.github.com/blog/2012/04/08/ipad-as-second-monitor-display/"/>
+    <updated>2012-04-08T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2012/04/08/ipad-as-second-monitor-display</id>
+    <content type="html"><![CDATA[<p>DIY Set-up using iPad as second monitor display.</p>
+
+<h4>Tools used:</h4>
+
+<ol>
+<li>iPad side - Install Mocha VNC</li>
+<li>Mac OSX - Install ScreenRecycler</li>
+</ol>
+
+
+<p>A full guide <a href="http://www.geeksaresexy.net/2010/05/19/using-the-ipad-as-a-secondary-monitor/">here</a>.</p>
+
+<h4>Screenshots:</h4>
+
+<p><img src="http://jayrparro.github.com/images/blog_images/IMG_1492.JPG.scaled1000.jpg"></p>
+
+<p><img src="http://jayrparro.github.com/images/blog_images/IMG_1493.JPG.scaled1000.jpg"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DLog – an NSLog replacement]]></title>
+    <link href="http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement/"/>
+    <updated>2012-01-18T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement</id>
+    <content type="html"><![CDATA[<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><span style="color: #737373; font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Arial, sans-serif; line-height: 18px;">
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">It&rsquo;s more convenient and will add to app performance to log some statements only in Debug mode and avoiding them in release mode.</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">Plus, we can see in debug console the function &amp; line numbers being logged.</p>
+<div class="CodeRay">
+  <div class="code"><pre>#ifdef DEBUG
+
+#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#else
+
+#define DLog(...)
+
+#endif
+
+#define ALog(...) NSLog(__VA_ARGS__)</pre></div>
+</div>
+
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">First add the following to the&nbsp;_Prefix.pch file in your Xcode project:</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">In the project&rsquo;s Debug build configuration, set preprocessor macro DEBUG=1</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">&nbsp;</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><strong>Note:</strong></p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">DLog &ndash; log only in debug mode</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">ALog &ndash; log for both configurations (debug &amp; release)</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">&nbsp;</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><strong>More info here:</strong></p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><a href="http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158" style="color: #0069d6;">http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158</a></p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><a href="http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/" style="color: #0069d6;">http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/</a></p>
+</span></p>
+
+
+<p>&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Simulators in Xcode 4.2]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/10/20/simulators-in-xcode-4-2/"/>
+    <updated>2011-10-20T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/10/20/simulators-in-xcode-4-2</id>
+    <content type="html"><![CDATA[<p>In XCode 4.2, now you can install pre iOS 5 Simulators which is very flexible for debugging previous versions of iOS 5.</p>
+
+
+<p>See the screenshots.</p>
+
+
+<p><img src="http://jayrparro.github.com/images/blog_images/Screen_shot_2011-10-20_at_PM_04.08.29.png.scaled1000.png"></p>
+
+<p><img src="http://jayrparro.github.com/images/blog_images/Screen_shot_2011-10-20_at_PM_04.09.29.png.scaled1000.png"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Special look on Facetime]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/10/18/special-look-on-facetime/"/>
+    <updated>2011-10-18T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/10/18/special-look-on-facetime</id>
+    <content type="html"><![CDATA[<p>A good blog looking Facetime under the hood.&nbsp;</p>
+
+
+<p><a href="http://www.packetstan.com/2010/07/special-look-face-time-part-1.html">http://www.packetstan.com/2010/07/special-look-face-time-part-1.html</a>
+<a href="http://www.packetstan.com/2010/07/special-look-face-time-part-2-sip-and.html">http://www.packetstan.com/2010/07/special-look-face-time-part-2-sip-and.html</a><br/>
+<a href="http://www.packetstan.com/2010/07/special-look-face-time-part-3-call.html">http://www.packetstan.com/2010/07/special-look-face-time-part-3-call.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Invoke Facetime in-app]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/10/18/invoke-facetime-in-app/"/>
+    <updated>2011-10-18T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/10/18/invoke-facetime-in-app</id>
+    <content type="html"><![CDATA[<p>Currently, Facetime API is not yet opened as of this writing…<br/>
+For the time being, you can invoke Facetime initiating calls through URL:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'>
+</span><span class='line'><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;facetime://+123456789&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="p">[[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">]</span> <span class="nl">openURL:</span><span class="n">url</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>+123456789 - is the Facetime phone number</li>
+</ul>
+
+
+<p>Hope Facetime API will be open soon&#8230; ;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Localize the Default splash screen image in iOS]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/09/14/localize-the-default-splash-screen-image-in-ios/"/>
+    <updated>2011-09-14T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/09/14/localize-the-default-splash-screen-image-in-ios</id>
+    <content type="html"><![CDATA[<p><a href="href=%22http://developer.apple.com/library/IOS/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BuildTimeConfiguration/BuildTimeConfiguration.html">Apple Official Documentation:</a></p>
+
+<blockquote><p>An iOS application should be internationalized and have a language.lproj directory for each language it supports. In addition to providing localized versions of your application&rsquo;s custom resources, you can also localize your application icon, launch images, and Settings icon by placing files with the same name in your language-specific project directories. Even if you provide localized versions, however, include a default version of these files at the top level of your application bundle. The default version is used when a specific localization is not available.</p></blockquote>
+
+<p>Procedures: <br/>
+(note: &#8220;X&#8221; stands for either Landscape, Portrait, iPhone, iPad suffixes)</p>
+
+<ol>
+<li>Add the Default-X.png image on your Xcode project. I&#8217;ve put this file under the &#8220;Supporting Files&#8221; group. It should be on the top level of the application bundle</li>
+<li>Click Default-X.png. Then, select the Identity inspector.</li>
+<li>Select the drop down Localization tab. From there, you can select which language to localized for this image.</li>
+<li>First, I&#8217;ve select English. Then, browse to the en.lproj folder put the correct English Default splash screen image</li>
+<li>In my case I&#8217;ve localized it to Russian. Select again the localization tab and click &#8220;+&#8221;, add the Russian language. Then, browse to the rus.lproj folder to put the correct Russian default spash screen image.</li>
+</ol>
+
+
+<p>Pls. do note Localized resources are placed in subdirectories with an ISO 639-1 language abbreviation for a name plus an .lproj suffix. (For example, the en.lproj, fr.lproj, and es.lproj directories contain resources localized for English, French, and Spanish.) For more information, see <a href="http://developer.apple.com/library/IOS/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BuildTimeConfiguration/BuildTimeConfiguration.html#//apple_ref/doc/uid/TP40007072-CH7-SW3">Internationalizing Your Application.</a></p>
+
+<p>Screenshots:</p>
+
+<p><img src="http://jayrparro.github.com/images/blog_images/Screen_shot_2011-09-15_at_PM_12.15.07.png"><br/>
+<img src="http://jayrparro.github.com/images/blog_images/Screen_shot_2011-09-15_at_PM_12.18.57.png"></p>
+
+<p>From there, you can find your way! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iOS Debugging Magic]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/09/12/ios-debugging-magic/"/>
+    <updated>2011-09-12T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/09/12/ios-debugging-magic</id>
+    <content type="html"><![CDATA[<p>Some facilities/tools that quite helpful in debugging iOS Apps.  <br/>
+<a href="http://developer.apple.com/library/ios/#technotes/tn2239/_index.html">http://developer.apple.com/library/ios/#technotes/tn2239/_index.html</a></p>
+
+<p>By the way, pls. do note:</p>
+
+<ul>
+<li>The technote was written with reference to iOS 4.1.</li>
+<li>These facilities are for debugging only: you must not ship a product that relies on the existence or functionality of the facilities described in the technote.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Resource Framework for iOS Development]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/09/05/resource-framework-for-ios-development/"/>
+    <updated>2011-09-05T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/09/05/resource-framework-for-ios-development</id>
+    <content type="html"><![CDATA[<p>If you don&#8217;t want to use the native SDK, here&#8217;s a good resource for iOS Development: <br/>
+<a href="http://www.tripwiremagazine.com/2011/09/how-to-make-an-iphone-app.html">http://www.tripwiremagazine.com/2011/09/how-to-make-an-iphone-app.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Documenting your code using Doxygen]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/06/28/documenting-your-code-using-doxygen/"/>
+    <updated>2011-06-28T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/06/28/documenting-your-code-using-doxygen</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve bumped with this tutorial and it&#8217;s a good note to take down. <br/>
+Using Doxygen to create Xcode documentation sets.</p>
+
+<p>Check it out! <br/>
+<a href="http://developer.apple.com/tools/creatingdocsetswithdoxygen.html">http://developer.apple.com/tools/creatingdocsetswithdoxygen.html</a></p>
+
+<p>Happy Coding! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Incorrect Signature - ShareKit+Twitter error]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/05/24/incorrect-signature-sharekit-twitter-error/"/>
+    <updated>2011-05-24T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/05/24/incorrect-signature-sharekit-twitter-error</id>
+    <content type="html"><![CDATA[<p>I&#8217;m using ShareKit  v0.2.1 in our app to integrate FB and Twitter status updates. The FB service is working fine. However, in the Twitter service I encountered this error:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">Twitter</span> <span class="n">Send</span> <span class="n">Status</span> <span class="nl">Error:</span><span class="p">{</span>
+</span><span class='line'>  <span class="s">&quot;request&quot;</span><span class="o">:</span><span class="s">&quot;\/1\/statuses\/update.json&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s">&quot;error&quot;</span><span class="o">:</span><span class="s">&quot;Incorrect signature&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&#8217;m just concerned of sharing the URL to be posted in the user&#8217;s wall. <br/>
+Reported the problem/bug <a href="http://bit.ly/kPSHU1">here</a>.</p>
+
+<p>I found out that the Twitter oAuth has been updated and breaks in this latest release of ShareKit.</p>
+
+<p>Excerpts from Twitter oAuth docs (<a href="https://dev.twitter.com/doc/get/oauth/authorize">https://dev.twitter.com/doc/get/oauth/authorize</a>):</p>
+
+<blockquote><p>Please use HTTPS for this method, and all other OAuth token negotiation steps.</p></blockquote>
+
+<p>To fix this issue, we need to change SHKTwitter.m in lines 54-56 <br/>
+from <strong>https://twitter.com/</strong> to <strong>https://api.twitter.com/</strong></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">authorizeURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/oauth/authorize&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">requestURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/oauth/request_token&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">accessURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/oauth/access_token&quot;</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, in sendStatus method update the URL link:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">OAMutableURLRequest</span> <span class="o">*</span><span class="n">oRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="n">OAMutableURLRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithURL:</span><span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/1/statuses/update.json&quot;</span><span class="p">]</span> <span class="nl">consumer:</span><span class="n">consumer</span> <span class="nl">token:</span><span class="n">accessToken</span> <span class="nl">realm:</span><span class="nb">nil</span> <span class="nl">signatureProvider:</span><span class="nb">nil</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This should be fix in the next version of ShareKit. :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[XCode 4 Build setting for Ad-hoc & Release]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/04/03/xcode-4-build-setting-for-ad-hoc-release/"/>
+    <updated>2011-04-03T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/04/03/xcode-4-build-setting-for-ad-hoc-release</id>
+    <content type="html"><![CDATA[<p>With the new Xcode 4, a lot of changes of its UI and settings have been implemented &amp; modified. I&#8217;ve get lost for a while, how to build for Ad-hoc &amp; release.</p>
+
+<p>This blog lists help me to get through: <br/>
+<a href="http://bit.ly/hpnKGY">Ad-Hoc App Distribution with XCode 4 « Diary of a Code Monkey</a><br/>
+<a href="http://bit.ly/dSTavI">How to build and submit iPhone app for distribution with Xcode 4 | OOPS</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Understanding your (Objective-C) self]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/02/16/understanding-your-objective-c-self/"/>
+    <updated>2011-02-16T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/02/16/understanding-your-objective-c-self</id>
+    <content type="html"><![CDATA[<p style="margin-bottom: 1em; margin-top: 0em;">Understanding your (Objective-C) self from <a href="http://useyourloaf.com/blog/2011/2/8/understanding-your-objective-c-self.html" title="kharrison">kharrison</a>&#8230;</p>
+
+
+<p>&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mobile Cheatsheets for iPhone, Android and Blackberry App Development]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/01/23/mobile-cheatsheets-for-iphone-android-and-blackberry-app-development/"/>
+    <updated>2011-01-23T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/01/23/mobile-cheatsheets-for-iphone-android-and-blackberry-app-development</id>
+    <content type="html"><![CDATA[<div>Mobile Cheatsheets. It&#8217;s a good&nbsp;<a href="http://speckyboy.com/2011/01/14/mobile-cheatsheets-for-iphone-android-and-blackberry-app-development/">reference</a>.</div>
+
+
+<p /><div>Happy coding! :D</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Setting iPhone application build versions]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/01/11/setting-iphone-application-build-versions/"/>
+    <updated>2011-01-11T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/01/11/setting-iphone-application-build-versions</id>
+    <content type="html"><![CDATA[<div>Setting iPhone application build versions and automating the build versioning process using&nbsp;<a href="http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man8/agvtool.8.html">agvtool</a></div>
+
+
+<p /><a href="http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html">http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html</a><p /><p /><div>Cheers!</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Strip HTML Tag in NSString]]></title>
+    <link href="http://jayrparro.github.com/blog/2010/11/28/strip-html-tag-in-nsstring/"/>
+    <updated>2010-11-28T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2010/11/28/strip-html-tag-in-nsstring</id>
+    <content type="html"><![CDATA[<p>This is a handy method to strip the HTML Tags in NSString object.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">+</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">flattenHTML:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">html</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">NSScanner</span> <span class="o">*</span><span class="n">thescanner</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">NSString</span> <span class="o">*</span><span class="n">text</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">thescanner</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSScanner</span> <span class="nl">scannerWithString:</span><span class="n">html</span><span class="p">];</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">while</span> <span class="p">([</span><span class="n">thescanner</span> <span class="n">isAtEnd</span><span class="p">]</span> <span class="o">==</span> <span class="n">NO</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//find start of tag</span>
+</span><span class='line'>      <span class="p">[</span><span class="n">thescanner</span> <span class="nl">scanUpToString:</span><span class="s">@&quot;&lt;&quot;</span> <span class="nl">intoString:</span><span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//find end of tag</span>
+</span><span class='line'>      <span class="p">[</span><span class="n">thescanner</span> <span class="nl">scanUpToString:</span><span class="s">@&quot;&gt;&quot;</span> <span class="nl">intoString:</span><span class="o">&amp;</span><span class="n">text</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//replace the found tag with a space</span>
+</span><span class='line'>       <span class="c1">//(you can filter multi-spaces out later if you wish)</span>
+</span><span class='line'>      <span class="n">html</span> <span class="o">=</span> <span class="p">[</span><span class="n">html</span> <span class="nl">stringByReplacingOccurrencesOfString:</span><span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="s">@&quot;%@&gt;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">]</span> <span class="nl">withString:</span><span class="s">@&quot;&quot;</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="c1">// Trimmed return</span>
+</span><span class='line'>   <span class="k">return</span> <span class="p">[</span><span class="n">html</span> <span class="nl">stringByTrimmingCharactersInSet:</span><span class="p">[</span><span class="n">NSCharacterSet</span> <span class="n">whitespaceCharacterSet</span><span class="p">]];</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thanks to the original <a href="http://rudis.net/content/2009/01/21/flatten-html-content-ie-strip-tags-cocoaobjective-c">poster.</a><br/>
+I&#8217;ve just change the return string to trim whitespaces.</p>
+
+<p>Cheers!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UIKeyboardTypeNumberPad and the missing "return" key]]></title>
+    <link href="http://jayrparro.github.com/blog/2010/10/31/uikeyboardtypenumberpad-and-the-missing-return-key/"/>
+    <updated>2010-10-31T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2010/10/31/uikeyboardtypenumberpad-and-the-missing-return-key</id>
+    <content type="html"><![CDATA[<p>If you have used in your iPhone app that requires keyboard with numeric input, you&#8217;ll observed it&#8217;s missing return/done key. How will you dismiss it?</p>
+
+
+<p>This is a good post and work-around for this issue.&nbsp;</p>
+
+
+<p><a href="http://www.neoos.ch/news/46-development/54-uikeyboardtypenumberpad-and-the-missing-return-key#idc-cover" title="UIKeyboardTypeNumberPad done key" target="_blank">http://www.neoos.ch/news/46-development/54-uikeyboardtypenumberpad-and-the-missing-return-key#idc-cover</a></p>
+
 ]]></content>
   </entry>
   

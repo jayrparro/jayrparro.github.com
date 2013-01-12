@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello Octopress - Jayr Parro</title>
+  <title>Adding drop shadow effect in a View - Jayr Parro</title>
   <meta name="author" content="Jayr Parro">
 
   
-  <meta name="description" content="New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.
-">
+  <meta name="description" content="A simple implementation of adding a drop shadow effect in a view instead of using “extra” shadow images. .h file: 1
+\#import &lt;QuartzCore/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/">
+  <link rel="canonical" href="http://jayrparro.github.com/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello Octopress</h1>
+      <h1 class="entry-title">Adding Drop Shadow Effect in a View</h1>
     
     
       <p class="meta">
@@ -94,14 +94,50 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2012-07-28T00:00:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.</p>
+<div class="entry-content"><p>A simple implementation of adding a drop shadow effect in a view instead of using “extra” shadow images.</p>
+
+<p>.h file:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="err">\#</span><span class="n">import</span> <span class="o">&lt;</span><span class="n">QuartzCore</span><span class="o">/</span><span class="n">QuartzCore</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>.m file:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'> <span class="c1">// add drop shadow</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">masksToBounds</span> <span class="o">=</span> <span class="n">NO</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOffset</span> <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// round corner</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowRadius</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowOpacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shadowPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBezierPath</span> <span class="nl">bezierPathWithRect:</span><span class="n">self</span><span class="p">.</span><span class="n">tempView</span><span class="p">.</span><span class="n">bounds</span><span class="p">].</span><span class="n">CGPath</span><span class="p">;</span> <span class="c1">// drawing optimization</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Initial View:<br/>
+<img src="/images/blog_images/initView.png.scaled500.png"></p>
+
+<p>Output View:<br/>
+<img src="/images/blog_images/outView.png.scaled500.png"></p>
+
+<p>You can download the code <a href="https://github.com/jayrparro/Labs/tree/master/DropShadow">here</a>.</p>
+
+<p>Happy Coding! :)</p>
 </div>
 
 
@@ -124,7 +160,7 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2012-07-28T00:00:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2012</time>
       
 
 
@@ -132,7 +168,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/" >Tweet</a>
   
   
   
@@ -141,8 +177,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/" title="Previous Post: Adding drop shadow effect in a View">&laquo; Adding drop shadow effect in a View</a>
+        <a class="basic-alignment left" href="/blog/2012/05/17/stretchable-images-in-ios-5/" title="Previous Post: Stretchable Images in iOS 5">&laquo; Stretchable Images in iOS 5</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2013/01/12/hello-octopress/" title="Next Post: Hello Octopress">Hello Octopress &raquo;</a>
       
     </p>
   </footer>

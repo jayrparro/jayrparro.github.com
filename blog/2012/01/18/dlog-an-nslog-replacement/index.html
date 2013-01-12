@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello Octopress - Jayr Parro</title>
+  <title>DLog – an NSLog replacement - Jayr Parro</title>
   <meta name="author" content="Jayr Parro">
 
   
-  <meta name="description" content="New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.
-">
+  <meta name="description" content="It&rsquo;s more convenient and will add to app performance to log some statements only in Debug mode and avoiding them in release mode.
+Plus, we can &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/">
+  <link rel="canonical" href="http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello Octopress</h1>
+      <h1 class="entry-title">DLog – an NSLog Replacement</h1>
     
     
       <p class="meta">
@@ -94,14 +94,45 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2012-01-18T00:00:00+08:00" pubdate data-updated="true">Jan 18<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.</p>
+<div class="entry-content"><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><span style="color: #737373; font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Arial, sans-serif; line-height: 18px;">
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">It&rsquo;s more convenient and will add to app performance to log some statements only in Debug mode and avoiding them in release mode.</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">Plus, we can see in debug console the function &amp; line numbers being logged.</p>
+<div class="CodeRay">
+  <div class="code"><pre>#ifdef DEBUG
+
+#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#else
+
+#define DLog(...)
+
+#endif
+
+#define ALog(...) NSLog(__VA_ARGS__)</pre></div>
+</div>
+
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">First add the following to the&nbsp;_Prefix.pch file in your Xcode project:</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">In the project&rsquo;s Debug build configuration, set preprocessor macro DEBUG=1</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">&nbsp;</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><strong>Note:</strong></p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">DLog &ndash; log only in debug mode</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">ALog &ndash; log for both configurations (debug &amp; release)</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">&nbsp;</p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><strong>More info here:</strong></p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><a href="http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158" style="color: #0069d6;">http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158</a></p>
+<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><a href="http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/" style="color: #0069d6;">http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/</a></p>
+</span></p>
+
+
+<p>&nbsp;</p>
+
 </div>
 
 
@@ -124,7 +155,7 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2012-01-18T00:00:00+08:00" pubdate data-updated="true">Jan 18<span>th</span>, 2012</time>
       
 
 
@@ -132,7 +163,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement/" >Tweet</a>
   
   
   
@@ -141,8 +172,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/" title="Previous Post: Adding drop shadow effect in a View">&laquo; Adding drop shadow effect in a View</a>
+        <a class="basic-alignment left" href="/blog/2011/10/20/simulators-in-xcode-4-2/" title="Previous Post: Simulators in Xcode 4.2">&laquo; Simulators in Xcode 4.2</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2012/04/08/ipad-as-second-monitor-display/" title="Next Post: iPad as Second Monitor Display">iPad as Second Monitor Display &raquo;</a>
       
     </p>
   </footer>

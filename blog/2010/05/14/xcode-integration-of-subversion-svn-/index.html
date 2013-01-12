@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello Octopress - Jayr Parro</title>
+  <title>Xcode Integration of Subversion (SVN) - Jayr Parro</title>
   <meta name="author" content="Jayr Parro">
 
   
-  <meta name="description" content="New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.
-">
+  <meta name="description" content="Previously, I&#8217;m integrating my Xcode project to SVN. I&#8217;ve followed Jeff LaMarche tutorial here but I&#8217;ve found out it&#8217;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/">
+  <link rel="canonical" href="http://jayrparro.github.com/blog/2010/05/14/xcode-integration-of-subversion-svn-/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello Octopress</h1>
+      <h1 class="entry-title">Xcode Integration of Subversion (SVN)</h1>
     
     
       <p class="meta">
@@ -94,14 +93,30 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2010-05-14T00:00:00+08:00" pubdate data-updated="true">May 14<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.</p>
+<div class="entry-content"><p>Previously, I&#8217;m integrating my Xcode project to SVN. I&#8217;ve followed Jeff LaMarche tutorial <a href="http://bit.ly/BGPZz">here</a> but I&#8217;ve found out it&#8217;s outdated in the last part since it is based on the previous release of Xcode, I think. The beginning and the middle part is still correct.</p>
+
+<p>So if you&#8217;re using Xcode 3.2+ like the one I&#8217;m using for my project, follow this direction for Jeff&#8217;s &#8220;Not Quite Yet Done&#8221; section of his tutorial.</p>
+
+<p>In Xcode 3.2, click the SCM menu →  Configure SCM for this project. A submenu would appear like below:<br/>
+<img src="http://3.bp.blogspot.com/_DFLTFpvCfQ4/S-zK5sEq-TI/AAAAAAAABLg/7oZuMB7-uzo/s1600/1.png"></p>
+
+<p>Then, Click on the Configure Roots &amp; SCM, a pop-up menu would appear like the one below:<br/>
+<img src="http://2.bp.blogspot.com/_DFLTFpvCfQ4/S-zLYDbHyQI/AAAAAAAABLo/N7BtIuN740c/s1600/2.png"></p>
+
+<p>Click on that and select the proper repository being configured for this project.</p>
+
+<p>Once you&#8217;ve done that, a new column will appear in your project&#8217;s Group &amp; Files Pane. If the new column is not visible, right-click the header of the Group &amp; Files Pane then, select SCM.  This new column tells you the status of the file in the repository.</p>
+
+<p>For further reference, please see Apple&#8217;s <a href="http://bit.ly/98ezRt">Xcode Source Management Guide</a>.</p>
+
+<p>Thanks also to Jeff for a good blog on this stuff! Cheers! :)</p>
 </div>
 
 
@@ -124,7 +139,7 @@
   
 
 
-<time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
+<time datetime="2010-05-14T00:00:00+08:00" pubdate data-updated="true">May 14<span>th</span>, 2010</time>
       
 
 
@@ -132,7 +147,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2010/05/14/xcode-integration-of-subversion-svn-/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2010/05/14/xcode-integration-of-subversion-svn-/" >Tweet</a>
   
   
   
@@ -141,8 +156,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/" title="Previous Post: Adding drop shadow effect in a View">&laquo; Adding drop shadow effect in a View</a>
+        <a class="basic-alignment left" href="/blog/2010/04/10/tacx-arcade-1-is-released-/" title="Previous Post: Tacx Arcade 1 is released!">&laquo; Tacx Arcade 1 is released!</a>
       
+      
+        <a class="basic-alignment right" href="/blog/2010/05/16/mylocation-a-corelocation-tutorial/" title="Next Post: MyLocation: A CoreLocation Tutorial">MyLocation: A CoreLocation Tutorial &raquo;</a>
       
     </p>
   </footer>

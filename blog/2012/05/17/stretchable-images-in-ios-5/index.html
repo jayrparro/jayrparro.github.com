@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Stretchable Images in iOS 5 - Jayr Parro</title>
+  <meta name="author" content="Jayr Parro">
+
+  
+  <meta name="description" content="In iOS 5, working with UIImage stretchableImageWithLeftCapWidth:topCapHeight: is deprecated; in which I&#8217;ve used it heavily to reduced app size &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jayrparro.github.com/blog/2012/05/17/stretchable-images-in-ios-5/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jayr Parro" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31634696-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jayr Parro</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jayrparro.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Stretchable Images in iOS 5</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-17T00:00:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In iOS 5, working with UIImage <em>stretchableImageWithLeftCapWidth:topCapHeight:</em> is deprecated; in which I&#8217;ve used it heavily to reduced app size, dynamic variable-width buttons, and less image files added in the project.</p>
+
+<p><strong>stretchableImageWithLeftCapWidth:topCapHeight:  </strong></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// Creates and returns a new image object with the specified cap values   </span>
+</span><span class='line'><span class="c1">// (Deprecated in iOS 5.0. Deprecated.   </span>
+</span><span class='line'><span class="c1">// Use the resizableImageWithCapInsets: instead,   </span>
+</span><span class='line'><span class="c1">// specifying cap insets such that the interior is a 1x1 area.)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">stretchableImageWithLeftCapWidth:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">leftCapWidth</span> <span class="nf">topCapHeight:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">topCapHeight</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, looking forward to support stretchable images in iOS 5, we&#8217;ll have to use this new method</p>
+
+<p><strong>resizableImageWithCapInsets:</strong></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'>
+</span><span class='line'><span class="c1">// Creates and returns a new image object with the specified cap insets.  </span>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">resizableImageWithCapInsets:</span><span class="p">(</span><span class="n">UIEdgeInsets</span><span class="p">)</span><span class="nv">capInsets</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Parameters</strong> <br/>
+capInsets - The values to use for the cap insets.</p>
+
+<p>Return Value - A new image object with the specified cap insets.</p>
+
+<p><strong>Discussion</strong> - <br/>
+You use this method to add cap insets to an image or to change the existing cap insets of an image. In both cases, you get back a new image and the original image remains untouched.</p>
+
+<p>During scaling or resizing of the image, areas covered by a cap are not scaled or resized. Instead, the pixel area not covered by the cap in each direction is tiled, left-to-right and top-to-bottom, to resize the image. This technique is often used to create variable-width buttons, which retain the same rounded corners but whose center region grows or shrinks as needed. For best performance, use a tiled area that is a 1x1 pixel area in size.</p>
+
+<blockquote><p>As noted in the documentation, cap insets of the image are pixel area that are not affected when the image is scaled or resized dynamically. The pixels beyond the cap area are being tiled.</p></blockquote>
+
+<p>In this example, I&rsquo;ve use this image with dimension of 12 (width) x 43 (height) pixels. You need to check in Photoshop the actual cap pixels area (or should ask your designer). The sample image I&rsquo;ve use has rounded corner in the top, which is specifically, 6 pixels width, and that&rsquo;s the cap area that I don&rsquo;t want to be scaled/resized.</p>
+
+<p><img src="/images/blog_images/blue-header-frame.jpg.scaled500.jpg"></p>
+
+<p>In pre-iOS 5, we&rsquo;ve use the stretchableImageWithLeftCapWidth:topCapHeight:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// note- stretchableImageWithLeftCapWidth deprecated in iOS 5</span>
+</span><span class='line'><span class="n">UIImage</span><span class="o">*</span> <span class="n">image1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span> <span class="n">FILE_IMG_BLUE_HEADER</span><span class="p">]</span> <span class="nl">stretchableImageWithLeftCapWidth:</span><span class="mf">6.0</span> <span class="nl">topCapHeight:</span><span class="mf">0.0</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">UIImageView</span><span class="o">*</span> <span class="n">imageView1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage:</span><span class="n">image1</span><span class="p">];</span>
+</span><span class='line'><span class="n">imageView1</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="n">image1</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview:</span><span class="n">imageView1</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The value parameter stretchableImageWithLeftCapWidth:6.0 is the left cap width pixel (6 pixels width as noted in our sample image).</p>
+
+<p>In iOS 5+ onwards, we use resizableImageWithCapInsets:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="c1">// note- resizableImageWithCapInsets use in iOS 5+</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">imageView3</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span> <span class="n">FILE_IMG_BLUE_HEADER</span><span class="p">]</span> <span class="nl">resizableImageWithCapInsets:</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&#8217;ve put a value for UIEdgeInsetsMake for both <em>left</em> and <em>right</em> which is 6-pixels cap width. Then, UIEdgeInsetsMake returns a UIEdgeInsets data struct-</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'>
+</span><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">CGFloat</span> <span class="n">top</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span> <span class="n">UIEdgeInsets</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Output:</p>
+
+<ol>
+<li>An imageView in which the image is just stretch and&nbsp;<em>no</em>cap/tiled being applied. It looks ugly.</li>
+<li>An imageView in which the image is stretch and cap/tiled pixels are applied. The imageView is added in the view programmatically.</li>
+<li>The image is stretch and cap/tiled pixels are applied. The imageView is added via an outlet.</li>
+</ol>
+
+
+<p>Screenshot:<br/>
+<img src="/images/blog_images/Screen_Shot_2012-05-16_at_6.13.08_PM.png.scaled500.png"></p>
+
+<p>You can download the sample code <a href="https://github.com/jayrparro/Labs/tree/master/StretchableImage">here</a>.</p>
+
+<p>Happy Coding! :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jayr Parro</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-17T00:00:00+08:00" pubdate data-updated="true">May 17<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2012/05/17/stretchable-images-in-ios-5/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2012/05/17/stretchable-images-in-ios-5/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/04/14/git-101/" title="Previous Post: Git 101">&laquo; Git 101</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/" title="Next Post: Adding drop shadow effect in a View">Adding drop shadow effect in a View &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/12/hello-octopress/">Hello Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/">Adding drop shadow effect in a View</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/17/stretchable-images-in-ios-5/">Stretchable Images in iOS 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/14/git-101/">Git 101</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/08/ipad-as-second-monitor-display/">iPad as Second Monitor Display</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jayrparro">@jayrparro</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jayrparro',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("jayrparro", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/jayrparro" class="twitter-follow-button" data-show-count="false">Follow @jayrparro</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jayr Parro -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

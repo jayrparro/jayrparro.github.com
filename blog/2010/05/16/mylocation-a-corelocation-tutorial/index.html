@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>MyLocation: A CoreLocation Tutorial - Jayr Parro</title>
+  <meta name="author" content="Jayr Parro">
+
+  
+  <meta name="description" content="This tutorial provide the basics for using the CoreLocation API in an iPhone app. The goal of this tutorial is to build a simple application, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jayrparro.github.com/blog/2010/05/16/mylocation-a-corelocation-tutorial/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jayr Parro" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31634696-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jayr Parro</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jayrparro.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">MyLocation: A CoreLocation Tutorial</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-16T00:00:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This tutorial provide the basics for using the CoreLocation API in an iPhone app. The goal of this tutorial is to build a simple application, <strong>MyLocation</strong>. This application will tell you your current location and update itself when you move.</p>
+
+<h4><strong>Core Location Fundamentals:</strong></h4>
+
+<p>The Core Location API is event-based. The phone gets an update when Core Location is running and new location is available or changes. The main class that do the work is <strong><em>CLLocationManager</em></strong>, usually referred to as the Location Manager. To use Core Location, we need to create and instantiate the <strong><em>CLLocationManager</em></strong> class, like this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">CLLocationManager</span> <span class="o">*</span><span class="n">locationManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">CLLocationManager</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, the Location Manager will call the  delegate methods when new location is available. This delegate method must conform to <strong><em>CLLocationManagerDelegate</em></strong> protocol.</p>
+
+<h4><strong><em>CLLocationManager</em></strong> Properties and methods:</h4>
+
+<ul>
+<li><p>Desired Accuracy</p>
+
+<p>  After setting the delegate, we must set the requested accuracy of the location data. Assign a value to this property appropriated only for the application usage and scenario. The more accuracy you demand, the more juice you&#8217;re likely to use. The value is in meters. Example of setting the delegate and requesting a specific level of accuracy:</p></li>
+</ul>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">locationManager</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+</span><span class='line'><span class="n">locationManager</span><span class="p">.</span><span class="n">desiredAccuracy</span> <span class="o">=</span> <span class="n">kCLLocationAccuracyBest</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>Distance Filter</p>
+
+<p>  The minimum distance (measured in meters) a device must move laterally before an update event is generated. The default value of this property is <strong>kCLDistanceFilterNone</strong>. Specifying a distance filter of 1000 tells the Location Manager not to notify its delegate until the iPhone has moved at least 1,000 meters from its previously reported position. <br/>
+Here’s an example:</p></li>
+</ul>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">locationManager</span><span class="p">.</span><span class="n">distanceFilter</span> <span class="o">=</span> <span class="mf">1000.0f</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Starting and Stopping updates:</h4>
+
+<p>When you start polling location, you invoke this
+line to start the Location Manager</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="p">[</span><span class="n">locationManager</span> <span class="n">startUpdatingLocation</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It will eventually call its delegate method when it has determined the current location and senses any changes of the location.<br/>
+When you already determined the information needed, invoke the delegate to stop the Location Manager by this line:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="p">[</span><span class="n">locationManager</span> <span class="n">stopUpdatingLocation</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Getting the latitude and longitude:</h4>
+
+<p>The Location Manager passes the location data using instances of the <em>CLLocation</em> class. The latitude and longitude are stored in a property called <em>coordinate</em>. <br/>
+To get the latitude and longitude in degrees, do this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">CLLocationDegrees</span> <span class="n">latitude</span> <span class="o">=</span> <span class="n">theLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">latitude</span>
+</span><span class='line'><span class="n">CLLocationDegrees</span> <span class="n">longitude</span> <span class="o">=</span> <span class="n">theLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">longitude</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Location Manager Delegate</h4>
+
+<p>The Location Manager delegate must conform to the <strong>CLLocationManagerDelegate</strong> protocol. The protocol have two methods:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">locationManager:</span><span class="p">(</span><span class="n">CLLocationManager</span> <span class="o">*</span><span class="p">)</span><span class="nv">manager</span> <span class="nf">didUpdateToLocation:</span><span class="p">(</span><span class="n">CLLocation</span> <span class="o">*</span><span class="p">)</span><span class="nv">newLocation</span> <span class="nf">fromLocation:</span><span class="p">(</span><span class="n">CLLocation</span> <span class="o">*</span><span class="p">)</span><span class="nv">oldLocation</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> Tells the delegate that a new location value is available.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">locationManager:</span><span class="p">(</span><span class="n">CLLocationManager</span> <span class="o">*</span><span class="p">)</span><span class="nv">manager</span> <span class="nf">didFailWithError:</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Tells the delegate that the location manager was unable to retrieve a location value.</p>
+
+<h4>Creating the Project:</h4>
+
+<ol>
+<li>Create a new project using File-&gt; New Project… from Xcode’s menu</li>
+<li>Select View-Based Application from the iPhone OS -&gt; Application section, click Choose…</li>
+<li>Name the project as MyLocation and click Save</li>
+</ol>
+
+
+<h4>Modifying the Controller Class MyLocationViewController.m/.h</h4>
+
+<ol>
+<li>We&#8217;ll start by adding the CoreLocation framework to the Project</li>
+<li>In the Groups &amp; Files panel of the project, expand the MyLocation project branch</li>
+<li>Control-click or right-click the Frameworks folder</li>
+<li>Choose Add -&gt; Existing Frameworks…</li>
+<li>Expand the Frameworks folder</li>
+<li>Choose <em>CoreLocation.framework</em> and click Add</li>
+</ol>
+
+
+<p>Next, click MyLocationViewController.h and write the following code:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">@interface</span> <span class="nc">MyLocationViewController</span> : <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">CLLocationManagerDelegate</span><span class="o">&gt;</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">CLLocationManager</span> <span class="o">*</span><span class="n">m_locationManager</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">CLLocation</span> <span class="o">*</span><span class="n">m_locationStartingPoint</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">//UI Outlets</span>
+</span><span class='line'>  <span class="n">UILabel</span> <span class="o">*</span><span class="n">m_latitudeLabel</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">UILabel</span> <span class="o">*</span><span class="n">m_longitudeLabel</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@property</span><span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span><span class="n">retain</span><span class="p">)</span> <span class="n">CLLocationManager</span> <span class="o">*</span><span class="n">m_locationManager</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span><span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span><span class="n">retain</span><span class="p">)</span> <span class="n">CLLocation</span> <span class="o">*</span><span class="n">m_locationStartingPoint</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span><span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span><span class="n">retain</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">m_latitudeLabel</span><span class="p">;</span>
+</span><span class='line'><span class="k">@property</span><span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span><span class="n">retain</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">m_longitudeLabel</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explanation of .h file:
+First, we import the Core Location header file.<br/>
+The class must conform to the CLLocationManagerDelegate protocol.<br/>
+We declare two UILabels for output in the view. IBOutlet is a macro that tells the compiler that it needs to wire up this variable to a corresponding UILabel element added in Interface Builder.</p>
+
+<h4>Design the view of the application:</h4>
+
+<p>Click the MyLocationViewController.xib to open up the Interface Builder.</p>
+
+<ol>
+<li>In the Groups &amp; Files panel of the project, expand the MyLocation project branch</li>
+<li>Control-click or right-click the Resources folder</li>
+<li>Double-click the MyLocationViewController.xib file</li>
+</ol>
+
+
+<p>Make sure that the Library, Inspector and View windows are open/visible. <br/>
+If they are not:</p>
+
+<ol>
+<li>Show the Library window using Tools &gt; Library from the menu</li>
+<li>Show the Inspector window using Tools &gt; Inspector from the menu</li>
+<li>Show the View by clicking the View icon on the HelloThereViewController.xib window</li>
+</ol>
+
+
+<p>Adding the label:<br/>
+Locate the Label component in the Library window and drag it onto the view. <br/>
+UI output looks like this:</p>
+
+<p/>
+<img src="http://2.bp.blogspot.com/_DFLTFpvCfQ4/S_AhSZRCyBI/AAAAAAAABLw/iwedmhfYzE0/s1600/Screen+shot+2010-05-16+at+11.37.34+PM.png">
+  
+<p />Connect the Interface Builder label the code’s m_latitudeLabel, m_longitudeLabel. While still in Interface Builder:<br />Control-click on File’s Owner icon in the MyLocationViewController.xib window<p /><ol>
+<li>In the resulting pop-up menu, click-and-hold (i.e., don’t unclick) on the right-justified circle in the m_latitudeLabel row of the Outlets section</li>
+<li>Drag the mouse to the Label in the View. A blue line will connect the two.</li>
+<li>Do this for the remaining label</li>
+</ol>  
+  
+Confirm that the two have been connected. The pop-up menu should look like the image below:  
+<p/>    
+<img src="http://4.bp.blogspot.com/_DFLTFpvCfQ4/S_AhtXlAwNI/AAAAAAAABL4/6r2Fs_53zLg/s1600/Screen+shot+2010-05-16+at+11.38.24+PM.png">  
+  
+<p/>  
+If everything looks right, save the changes and close Interface Builder.
+Switch back to Xcode, implement the MyLocationViewController.m
+  
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="err">\#</span><span class="n">import</span> <span class="o">&lt;</span><span class="n">UIKit</span><span class="o">/</span><span class="n">UIKit</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+</span><span class='line'><span class="err">\#</span><span class="n">mport</span> <span class="o">&lt;</span><span class="n">CoreLocation</span><span class="o">/</span><span class="n">CoreLocation</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">@implementation</span> <span class="nc">MyLocationViewController</span>
+</span><span class='line'>  <span class="k">@synthesize</span> <span class="n">m_locationManager</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">@synthesize</span> <span class="n">m_latitudeLabel</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">@synthesize</span> <span class="n">m_longitudeLabel</span><span class="p">;</span>
+</span><span class='line'>  
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">m_locationManager</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CLLocationManager</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>  <span class="n">m_locationManager</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">m_locationManager</span><span class="p">.</span><span class="n">desiredAccuracy</span> <span class="o">=</span> <span class="n">kCLLocationAccuracyBest</span><span class="p">;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="p">[</span><span class="n">m_locationManager</span> <span class="n">startUpdatingLocation</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidUnload</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">m_latitudeLabel</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">m_longitudeLabel</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">self</span><span class="p">.</span><span class="n">m_locationManager</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">super</span> <span class="n">viewDidUnload</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>  
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span> <span class="err"> </span><span class="p">{</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">m_latitudeLabel</span> <span class="n">release</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">m_longitudeLabel</span> <span class="n">release</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">m_locationManager</span> <span class="n">release</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">m_locationStartingPoint</span> <span class="n">release</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">super</span> <span class="n">dealloc</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">locationManager:</span><span class="p">(</span><span class="n">CLLocationManager</span> <span class="o">*</span><span class="p">)</span><span class="n">manager</span>
+</span><span class='line'><span class="nl">didUpdateToLocation:</span><span class="p">(</span><span class="n">CLLocation</span> <span class="o">*</span><span class="p">)</span><span class="n">newLocation</span><span class="err"> </span>
+</span><span class='line'><span class="nl">fromLocation:</span><span class="p">(</span><span class="n">CLLocation</span> <span class="o">*</span><span class="p">)</span><span class="n">oldLocation</span>
+</span><span class='line'><span class="p">{</span><span class="err">  </span>
+</span><span class='line'>  <span class="n">NSString</span> <span class="o">*</span><span class="n">latitudeString</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFormat:</span><span class="s">@&quot;%g°&quot;</span><span class="p">,</span> <span class="n">newLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">latitude</span><span class="p">];</span>
+</span><span class='line'>  <span class="n">m_latitudeLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">latitudeString</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">latitudeString</span> <span class="n">release</span><span class="p">];</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="n">NSString</span> <span class="o">*</span><span class="n">longitudeString</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFormat:</span><span class="s">@&quot;%g°&quot;</span><span class="p">,</span> <span class="n">newLocation</span><span class="p">.</span><span class="n">coordinate</span><span class="p">.</span><span class="n">longitude</span><span class="p">];</span>
+</span><span class='line'>  <span class="n">m_longitudeLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">longitudeString</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">longitudeString</span> <span class="n">release</span><span class="p">];</span>  
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">locationManager:</span><span class="p">(</span><span class="n">CLLocationManager</span> <span class="o">*</span><span class="p">)</span><span class="n">manager</span>
+</span><span class='line'><span class="nl">didFailWithError:</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="n">error</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">NSString</span> <span class="o">*</span><span class="n">errorTypeString</span> <span class="o">=</span> <span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">kCLErrorDenied</span><span class="p">)</span> <span class="o">?</span>
+</span><span class='line'>      <span class="s">@&quot;Access Denied&quot;</span> <span class="o">:</span> <span class="s">@&quot;Unknown Error&quot;</span><span class="p">;</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="n">UIAlertView</span> <span class="o">*</span><span class="n">alert</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIAlertView</span> <span class="n">alloc</span><span class="p">]</span><span class="err"> </span>
+</span><span class='line'>      <span class="nl">initWithTitle:</span><span class="s">@&quot;Error getting location&quot;</span>
+</span><span class='line'>      <span class="nl">message:</span><span class="n">errorTypeString</span>
+</span><span class='line'>      <span class="nl">delegate:</span><span class="nb">nil</span>
+</span><span class='line'>      <span class="nl">cancelButtonTitle:</span><span class="s">@&quot;OK&quot;</span>
+</span><span class='line'>      <span class="nl">otherButtonTitles:</span><span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="p">[</span><span class="n">alert</span> <span class="n">show</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">alert</span> <span class="n">release</span><span class="p">];</span>    
+</span><span class='line'><span class="p">}</span><span class="err"> </span>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
+  
+  
+<p />Build and go! ;)
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jayr Parro</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-16T00:00:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2010</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jayrparro.github.com/blog/2010/05/16/mylocation-a-corelocation-tutorial/" data-via="jayrparro" data-counturl="http://jayrparro.github.com/blog/2010/05/16/mylocation-a-corelocation-tutorial/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/05/14/xcode-integration-of-subversion-svn-/" title="Previous Post: Xcode Integration of Subversion (SVN)">&laquo; Xcode Integration of Subversion (SVN)</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/06/02/publishing-rejections-of-iphone-app-to-the-app-store/" title="Next Post: Publishing/Rejections of iPhone App to the App Store">Publishing/Rejections of iPhone App to the App Store &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/12/hello-octopress/">Hello Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/">Adding drop shadow effect in a View</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/17/stretchable-images-in-ios-5/">Stretchable Images in iOS 5</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/14/git-101/">Git 101</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/08/ipad-as-second-monitor-display/">iPad as Second Monitor Display</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jayrparro">@jayrparro</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jayrparro',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("jayrparro", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/jayrparro" class="twitter-follow-button" data-show-count="false">Follow @jayrparro</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jayr Parro -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
