@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Personal | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/personal/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Octopress!]]></title>
+    <link href="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/"/>
+    <updated>2013-01-12T02:01:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2013/01/12/hello-octopress</id>
+    <content type="html"><![CDATA[<p>Happy New Year!</p>
+
+<p>A New Year, a new blog. I've decided to move my personal blog from Posterous to Octopress. I like the simplicity of Octopress and it's really easy to setup and deploy. Aside from that, using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> make it very handy writing a blog.</p>
+
+<p>Over time, I'll try to maintain this site and evolve with things that I have already done, things that I have to share and accumulate more experiences in the future.</p>
+
+<p>Happy Coding! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[back in the blog... wew!]]></title>
+    <link href="http://jayrparro.github.com/blog/2010/04/09/back-in-the-blog-wew-/"/>
+    <updated>2010-04-09T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2010/04/09/back-in-the-blog-wew-</id>
+    <content type="html"><![CDATA[<p>It's been a long time since I've updated this blog of mine.  <br/>
+I'll take time to update this regularly amidst of my busy time. lol. :)</p>
+
+<p>It's been a while also that I've started into iPhone development (iPhone OS 3.0) and still have a lot to learn and hope I could post much tutorial as I've walked through.</p>
+
+<p>So, follow me in my roller-coaster ride! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hellow World!]]></title>
+    <link href="http://jayrparro.github.com/blog/2007/07/11/hellow-world-/"/>
+    <updated>2007-07-11T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2007/07/11/hellow-world-</id>
+    <content type="html"><![CDATA[<p>"Hellow World!", this is my first post for my blog and that's probably the first line of code ev'ry programmers should know. :)</p>
+
+<p>I've finally create a space for me.  weeh?!</p>
+]]></content>
+  </entry>
+  
+</feed>

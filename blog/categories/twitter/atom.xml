@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Twitter | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/twitter/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Incorrect Signature - ShareKit+Twitter error]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/05/24/incorrect-signature-sharekit-twitter-error/"/>
+    <updated>2011-05-24T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/05/24/incorrect-signature-sharekit-twitter-error</id>
+    <content type="html"><![CDATA[<p>I'm using ShareKit  v0.2.1 in our app to integrate FB and Twitter status updates. The FB service is working fine. However, in the Twitter service I encountered this error:<br/>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">Twitter</span> <span class="n">Send</span> <span class="n">Status</span> <span class="nl">Error:</span><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="s">&quot;request&quot;</span><span class="o">:</span><span class="s">&quot;\/1\/statuses\/update.json&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="s">&quot;error&quot;</span><span class="o">:</span><span class="s">&quot;Incorrect signature&quot;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I'm just concerned of sharing the URL to be posted in the user's wall. <br/>
+Reported the problem/bug <a href="http://bit.ly/kPSHU1">here</a>.</p>
+
+<p>I found out that the Twitter oAuth has been updated and breaks in this latest release of ShareKit.</p>
+
+<p>Excerpts from Twitter oAuth docs (<a href="https://dev.twitter.com/doc/get/oauth/authorize">https://dev.twitter.com/doc/get/oauth/authorize</a>):</p>
+
+<blockquote><p>Please use HTTPS for this method, and all other OAuth token negotiation steps.</p></blockquote>
+
+<p>To fix this issue, we need to change SHKTwitter.m in lines 54-56 <br/>
+from <strong>https://twitter.com/</strong> to <strong>https://api.twitter.com/</strong>   <br/>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">authorizeURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/oauth/authorize&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">requestURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/oauth/request_token&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="n">self</span><span class="p">.</span><span class="n">accessURL</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/oauth/access_token&quot;</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Then, in sendStatus method update the URL link:<br/>
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">OAMutableURLRequest</span> <span class="o">*</span><span class="n">oRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="n">OAMutableURLRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithURL:</span><span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;https://api.twitter.com/1/statuses/update.json&quot;</span><span class="p">]</span> <span class="nl">consumer:</span><span class="n">consumer</span> <span class="nl">token:</span><span class="n">accessToken</span> <span class="nl">realm:</span><span class="nb">nil</span> <span class="nl">signatureProvider:</span><span class="nb">nil</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This should be fix in the next version of ShareKit. :)</p>
+]]></content>
+  </entry>
+  
+</feed>

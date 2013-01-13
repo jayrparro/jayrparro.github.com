@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Objective-C | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/objective-c/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Understanding your (Objective-C) self]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/02/16/understanding-your-objective-c-self/"/>
+    <updated>2011-02-16T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/02/16/understanding-your-objective-c-self</id>
+    <content type="html"><![CDATA[<p style="margin-bottom: 1em; margin-top: 0em;">Understanding your (Objective-C) self from <a href="http://useyourloaf.com/blog/2011/2/8/understanding-your-objective-c-self.html" title="kharrison">kharrison</a>...</p>
+
+
+<p>&nbsp;</p>
+
+]]></content>
+  </entry>
+  
+</feed>

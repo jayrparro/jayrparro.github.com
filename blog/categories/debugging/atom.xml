@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Debugging | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/debugging/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[iPhone Memory Debugging using Instruments and NSZombie enabled]]></title>
+    <link href="http://jayrparro.github.com/blog/2010/07/09/iphone-memory-debugging-using-instruments-and-nszombie-enabled/"/>
+    <updated>2010-07-09T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2010/07/09/iphone-memory-debugging-using-instruments-and-nszombie-enabled</id>
+    <content type="html"><![CDATA[<p>When your iPhone app crashes caused by "BAD ACCESS", it's really painful to trace the code fault. It feels good Instruments have support for enabling the NSZombie detection.</p>
+
+<p>Thanks to markj for writing this good <a href="http://www.markj.net/iphone-memory-debug-nszombie/">guide</a>…definitely, helped me out.</p>
+
+<p>Cheers!</p>
+]]></content>
+  </entry>
+  
+</feed>

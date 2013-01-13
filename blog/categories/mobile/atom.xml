@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mobile | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/mobile/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mobile Cheatsheets for iPhone, Android and Blackberry App Development]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/01/23/mobile-cheatsheets-for-iphone-android-and-blackberry-app-development/"/>
+    <updated>2011-01-23T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/01/23/mobile-cheatsheets-for-iphone-android-and-blackberry-app-development</id>
+    <content type="html"><![CDATA[<div>Mobile Cheatsheets. It's a good&nbsp;<a href="http://speckyboy.com/2011/01/14/mobile-cheatsheets-for-iphone-android-and-blackberry-app-development/">reference</a>.</div>
+
+
+<p /><div>Happy coding! :D</div>
+
+]]></content>
+  </entry>
+  
+</feed>

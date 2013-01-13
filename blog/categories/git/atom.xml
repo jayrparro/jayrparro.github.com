@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git 101]]></title>
+    <link href="http://jayrparro.github.com/blog/2012/04/14/git-101/"/>
+    <updated>2012-04-14T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2012/04/14/git-101</id>
+    <content type="html"><![CDATA[<p>Just to share my Git 101 Presentation.</p>
+
+
+<p></p>
+
+<div style=""><strong style="display: block; margin: 12px 0 4px;"><a href="http://www.slideshare.net/jayrparro/git-101-12537505" title="Git 101" target="_blank">Git 101</a></strong> <iframe scrolling="no" marginheight="0" marginwidth="0" src="http://www.slideshare.net/slideshow/embed_code/12537505" frameborder="0" height="355" width="425"></iframe>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/jayrparro" target="_blank">PowerPoint</a> from <a href="http://www.slideshare.net/jayrparro" target="_blank">jayrparro</a></div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

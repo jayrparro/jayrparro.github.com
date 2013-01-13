@@ -4,7 +4,7 @@
   <title><![CDATA[Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-01-13T03:01:11+08:00</updated>
+  <updated>2013-01-14T01:43:06+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -14,11 +14,17 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Hello Octopress]]></title>
+    <title type="html"><![CDATA[Hello Octopress!]]></title>
     <link href="http://jayrparro.github.com/blog/2013/01/12/hello-octopress/"/>
     <updated>2013-01-12T02:01:00+08:00</updated>
     <id>http://jayrparro.github.com/blog/2013/01/12/hello-octopress</id>
-    <content type="html"><![CDATA[<p>New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.</p>
+    <content type="html"><![CDATA[<p>Happy New Year!</p>
+
+<p>A New Year, a new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress. I like the simplicity of Octopress and it&#8217;s really easy to setup and deploy. Aside from that, using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> make it very handy writing a blog.</p>
+
+<p>Over time, I&#8217;ll try to maintain this site and evolve with things that I have already done, things that I have to share and accumulate more experiences in the future.</p>
+
+<p>Happy Coding! :)</p>
 ]]></content>
   </entry>
   

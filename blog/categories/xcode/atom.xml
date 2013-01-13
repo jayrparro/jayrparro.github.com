@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Xcode | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/xcode/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Documenting your code using Doxygen]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/06/28/documenting-your-code-using-doxygen/"/>
+    <updated>2011-06-28T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/06/28/documenting-your-code-using-doxygen</id>
+    <content type="html"><![CDATA[<p>I've bumped with this tutorial and it's a good note to take down. <br/>
+Using Doxygen to create Xcode documentation sets.</p>
+
+<p>Check it out! <br/>
+<a href="http://developer.apple.com/tools/creatingdocsetswithdoxygen.html">http://developer.apple.com/tools/creatingdocsetswithdoxygen.html</a></p>
+
+<p>Happy Coding! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[XCode 4 Build setting for Ad-hoc & Release]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/04/03/xcode-4-build-setting-for-ad-hoc-release/"/>
+    <updated>2011-04-03T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/04/03/xcode-4-build-setting-for-ad-hoc-release</id>
+    <content type="html"><![CDATA[<p>With the new Xcode 4, a lot of changes of its UI and settings have been implemented &amp; modified. I've get lost for a while, how to build for Ad-hoc &amp; release.</p>
+
+<p>This blog lists help me to get through: <br/>
+<a href="http://bit.ly/hpnKGY">Ad-Hoc App Distribution with XCode 4 « Diary of a Code Monkey</a><br/>
+<a href="http://bit.ly/dSTavI">How to build and submit iPhone app for distribution with Xcode 4 | OOPS</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Setting iPhone application build versions]]></title>
+    <link href="http://jayrparro.github.com/blog/2011/01/11/setting-iphone-application-build-versions/"/>
+    <updated>2011-01-11T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2011/01/11/setting-iphone-application-build-versions</id>
+    <content type="html"><![CDATA[<div>Setting iPhone application build versions and automating the build versioning process using&nbsp;<a href="http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man8/agvtool.8.html">agvtool</a></div>
+
+
+<p /><a href="http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html">http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html</a><p /><p /><div>Cheers!</div>
+
+]]></content>
+  </entry>
+  
+</feed>

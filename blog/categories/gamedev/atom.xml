@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: GameDev | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/gamedev/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Tacx Arcade 1 is released!]]></title>
+    <link href="http://jayrparro.github.com/blog/2010/04/10/tacx-arcade-1-is-released-/"/>
+    <updated>2010-04-10T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2010/04/10/tacx-arcade-1-is-released-</id>
+    <content type="html"><![CDATA[<p>For a couple of months and sleepless nights last year, I've just checked it now and informed Tacx Arcade 1 is already released! :)</p>
+
+<p>Pls. see the official site here:<br/>
+<a href="http://www.tacxvr.com/en/products/vr-games">http://www.tacxvr.com/en/products/vr-games</a></p>
+
+<p>Screenshots:</p>
+
+<p><strong>Skyrider</strong> <br/>
+<img src="http://3.bp.blogspot.com/_DFLTFpvCfQ4/S8AdHgUm7hI/AAAAAAAABLI/p0opGoGGUXk/s1600/skyr_edited.JPG" title="Skyrider" ></p>
+
+<p><strong>Aquarius  </strong><br/>
+<img src="http://3.bp.blogspot.com/_DFLTFpvCfQ4/S8AdoK8UbPI/AAAAAAAABLQ/Pm39HLqkTY4/s1600/Aquarius_180x125_large.jpg" title="Aquarius" ></p>
+
+<p><strong>Peloton</strong><br/>
+<img src="http://2.bp.blogspot.com/_DFLTFpvCfQ4/S8Ad0fQC0dI/AAAAAAAABLY/1MpWS8BGRXU/s1600/Peloton_180x125_large.jpg" title="Peloton" ></p>
+
+<p>This is the first project we've made with Gemango Software Team (Game Dev) and Skyrider is the first 3D game I made professionally in my career. I'm proud of it! :)</p>
+
+<p>Kudos to Gemango GameDev Team:<br/>
+<strong>Gert Monnissen</strong> - Concepts &amp; Design<br/>
+<strong>Leonardo Parro Jr.</strong> - Developer (Skyrider)<br/>
+<strong>Sedrix Caritero</strong> - Developer (Aquarius)<br/>
+<strong>Jason Lumapas</strong> - Developer (Peloton &amp; Tacx Arcade Menu)<br/>
+<strong>Ariel Albaraccin</strong> - 2D Game Design &amp; Artwork<br /><strong>Ivan Kintanar</strong> (Studio2Solutions) - 3D Game Assets<br /><strong>Cebu Post Sounds</strong> - Sounds &amp; Music</p>
+
+<p>Special thanks to <strong>Jibb Smart</strong> for the Skyrider shader help. <br/>
+Special thanks also to the 3DGamestudio community for all the help and advise. :D</p>
+
+<p>The game is developed for Tacx BV by Gemango Software Services, Inc. in collaboration with AIM Productions NV.</p>
+
+<p>Here's the teaser video:</p>
+
+<iframe src="http://www.youtube.com/embed/EH7u0zHDlnc?wmode=transparent" allowfullscreen frameborder="0" height="417" width="500"></iframe>
+
+
+<p></p>
+
+<p>Hope you enjoy the game! :D</p>
+]]></content>
+  </entry>
+  
+</feed>

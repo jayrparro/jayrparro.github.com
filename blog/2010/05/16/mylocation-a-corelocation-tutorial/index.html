@@ -454,6 +454,12 @@ Switch back to Xcode, implement the MyLocationViewController.m
 <time datetime="2010-05-16T00:00:00+08:00" pubdate data-updated="true">May 16<span>th</span>, 2010</time>
       
 
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tutorials/'>Tutorials</a>, <a class='category' href='/blog/categories/ios-/'>iOS,</a>
+  
+</span>
+
 
     </p>
     
@@ -488,7 +494,7 @@ Switch back to Xcode, implement the MyLocationViewController.m
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/01/12/hello-octopress/">Hello Octopress</a>
+        <a href="/blog/2013/01/12/hello-octopress/">Hello Octopress!</a>
       </li>
     
       <li class="post">
@@ -508,6 +514,35 @@ Switch back to Xcode, implement the MyLocationViewController.m
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jayrparro">@jayrparro</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jayrparro',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

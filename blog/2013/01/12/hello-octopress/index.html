@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello Octopress - Jayr Parro</title>
+  <title>Hello Octopress! - Jayr Parro</title>
   <meta name="author" content="Jayr Parro">
 
   
-  <meta name="description" content="New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.
-">
+  <meta name="description" content="Happy New Year! A New Year, a new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress. I like the simplicity of Octopress &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Hello Octopress</h1>
+      <h1 class="entry-title">Hello Octopress!</h1>
     
     
       <p class="meta">
@@ -101,7 +100,13 @@
   </header>
 
 
-<div class="entry-content"><p>New Year, new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress.</p>
+<div class="entry-content"><p>Happy New Year!</p>
+
+<p>A New Year, a new blog. I&#8217;ve decided to move my personal blog from Posterous to Octopress. I like the simplicity of Octopress and it&#8217;s really easy to setup and deploy. Aside from that, using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> make it very handy writing a blog.</p>
+
+<p>Over time, I&#8217;ll try to maintain this site and evolve with things that I have already done, things that I have to share and accumulate more experiences in the future.</p>
+
+<p>Happy Coding! :)</p>
 </div>
 
 
@@ -126,6 +131,12 @@
 
 <time datetime="2013-01-12T02:01:00+08:00" pubdate data-updated="true">Jan 12<span>th</span>, 2013</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/personal/'>Personal</a>
+  
+</span>
 
 
     </p>
@@ -159,7 +170,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/01/12/hello-octopress/">Hello Octopress</a>
+        <a href="/blog/2013/01/12/hello-octopress/">Hello Octopress!</a>
       </li>
     
       <li class="post">
@@ -179,6 +190,35 @@
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jayrparro">@jayrparro</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jayrparro',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

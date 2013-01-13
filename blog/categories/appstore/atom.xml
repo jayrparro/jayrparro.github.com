@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: AppStore | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/appstore/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-01-14T01:43:06+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Publishing/Rejections of iPhone App to the App Store]]></title>
+    <link href="http://jayrparro.github.com/blog/2010/06/02/publishing-rejections-of-iphone-app-to-the-app-store/"/>
+    <updated>2010-06-02T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2010/06/02/publishing-rejections-of-iphone-app-to-the-app-store</id>
+    <content type="html"><![CDATA[<p>Here's a good guide for <a href="http://adeem.me/blog/2009/04/04/list-guideline-for-submitting-iphone-application-to-apple-store/">Submitting iPhone App to the AppStore</a>.<p />And some of the <a href="http://stackoverflow.com/questions/308479/reasons-for-rejecting-iphone-application-by-apple-store">Reasons of rejection to the AppStore</a>.<p />Cheers!</p>
+]]></content>
+  </entry>
+  
+</feed>
