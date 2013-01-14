@@ -3,7 +3,7 @@ layout: post
 title: Understanding your (Objective-C) self
 published: true
 comments: true
-categories: iOS, Objective-C
+categories: [iOS, Objective-C]
 
 ---
 

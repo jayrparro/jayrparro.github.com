@@ -3,7 +3,7 @@ layout: post
 title: ! 'MyLocation: A CoreLocation Tutorial'
 published: true
 comments: true
-categories: iOS, Tutorials
+categories: [iOS, Tutorials]
 
 ---
   

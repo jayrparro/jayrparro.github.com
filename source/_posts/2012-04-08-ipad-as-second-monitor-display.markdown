@@ -3,7 +3,7 @@ layout: post
 title: iPad as Second Monitor Display
 published: true
 comments: true
-categories: DIY, iOS
+categories: [DIY, iOS]
 
 ---
 

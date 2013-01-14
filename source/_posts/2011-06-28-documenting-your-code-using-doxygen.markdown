@@ -3,7 +3,7 @@ layout: post
 title: Documenting your code using Doxygen
 published: true
 comments: true
-categories: iOS, Xcode
+categories: [iOS, Xcode]
 
 ---
 I've bumped with this tutorial and it's a good note to take down.   

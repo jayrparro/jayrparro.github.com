@@ -3,7 +3,7 @@ layout: post
 title: Xcode Integration of Subversion (SVN)
 published: true
 comments: true
-categories: Xcode, SVN
+categories: [Xcode, SVN]
 
 ---
   

@@ -3,7 +3,7 @@ layout: post
 title: Incorrect Signature - ShareKit+Twitter error
 published: true
 comments: true
-categories: iOS, Twitter
+categories: [iOS, Twitter]
 
 ---
   

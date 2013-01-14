@@ -3,7 +3,7 @@ layout: post
 title: XCode 4 Build setting for Ad-hoc & Release
 published: true
 comments: true
-categories: iOS, Xcode
+categories: [iOS, Xcode]
 
 ---
 With the new Xcode 4, a lot of changes of its UI and settings have been implemented & modified. I've get lost for a while, how to build for Ad-hoc & release.   
