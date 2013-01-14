@@ -4,7 +4,7 @@
   <title><![CDATA[Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-01-14T01:43:06+08:00</updated>
+  <updated>2013-01-15T00:03:39+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -232,38 +232,37 @@ You use this method to add cap insets to an image or to change the existing cap 
     <link href="http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement/"/>
     <updated>2012-01-18T00:00:00+08:00</updated>
     <id>http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement</id>
-    <content type="html"><![CDATA[<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><span style="color: #737373; font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Arial, sans-serif; line-height: 18px;">
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">It&rsquo;s more convenient and will add to app performance to log some statements only in Debug mode and avoiding them in release mode.</p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">Plus, we can see in debug console the function &amp; line numbers being logged.</p>
-<div class="CodeRay">
-  <div class="code"><pre>#ifdef DEBUG
+    <content type="html"><![CDATA[<p>It’s more convenient and will add to app performance to log some statements only in Debug mode and avoiding them in release mode.</p>
 
-#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+<p>Plus, we can see in debug console the function &amp; line numbers being logged.</p>
 
-#else
-
-#define DLog(...)
-
-#endif
-
-#define ALog(...) NSLog(__VA_ARGS__)</pre></div>
-</div>
-
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">First add the following to the&nbsp;_Prefix.pch file in your Xcode project:</p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">In the project&rsquo;s Debug build configuration, set preprocessor macro DEBUG=1</p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">&nbsp;</p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><strong>Note:</strong></p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">DLog &ndash; log only in debug mode</p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">ALog &ndash; log for both configurations (debug &amp; release)</p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;">&nbsp;</p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><strong>More info here:</strong></p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><a href="http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158" style="color: #0069d6;">http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158</a></p>
-<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 9px; margin-left: 0px; padding: 0px;"><a href="http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/" style="color: #0069d6;">http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/</a></p>
-</span></p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="err">\#</span><span class="n">ifdef</span> <span class="n">DEBUG</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">\#</span><span class="n">define</span> <span class="n">DLog</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...)</span> <span class="n">NSLog</span><span class="p">((</span><span class="s">@&quot;%s [Line %d] &quot;</span> <span class="n">fmt</span><span class="p">),</span> <span class="n">__PRETTY_FUNCTION__</span><span class="p">,</span> <span class="n">__LINE__</span><span class="p">,</span> <span class="err">##</span><span class="n">__VA_ARGS__</span><span class="p">);</span>
+</span><span class='line'><span class="err">\#</span><span class="k">else</span>
+</span><span class='line'><span class="err">\#</span><span class="n">define</span> <span class="n">DLog</span><span class="p">(...)</span>
+</span><span class='line'><span class="err">\#</span><span class="n">endif</span>
+</span><span class='line'><span class="err">\#</span><span class="n">define</span> <span class="n">ALog</span><span class="p">(...)</span> <span class="n">NSLog</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>&nbsp;</p>
+<p>First add the following to the _Prefix.pch file in your Xcode project: <br/>
+In the project’s Debug build configuration, set preprocessor macro <strong>DEBUG=1</strong></p>
 
+<p>Note:<br/>
+DLog – log only in debug mode<br/>
+ALog – log for both configurations (debug &amp; release)</p>
+
+<p>More info here:<br/>
+<a href="http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158">http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158</a>
+<a href="http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/">http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/</a></p>
 ]]></content>
   </entry>
   
