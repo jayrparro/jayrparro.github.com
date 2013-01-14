@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Xcode | Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/blog/categories/xcode/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-01-15T00:03:39+08:00</updated>
+  <updated>2013-01-15T01:24:36+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -51,6 +51,31 @@ Using Doxygen to create Xcode documentation sets.</p>
 
 <p /><a href="http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html">http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html</a><p /><p /><div>Cheers!</div>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Xcode Integration of Subversion (SVN)]]></title>
+    <link href="http://jayrparro.github.com/blog/2010/05/14/xcode-integration-of-subversion-svn-/"/>
+    <updated>2010-05-14T00:00:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2010/05/14/xcode-integration-of-subversion-svn-</id>
+    <content type="html"><![CDATA[<p>Previously, I'm integrating my Xcode project to SVN. I've followed Jeff LaMarche tutorial <a href="http://bit.ly/BGPZz">here</a> but I've found out it's outdated in the last part since it is based on the previous release of Xcode, I think. The beginning and the middle part is still correct.</p>
+
+<p>So if you're using Xcode 3.2+ like the one I'm using for my project, follow this direction for Jeff's "Not Quite Yet Done" section of his tutorial.</p>
+
+<p>In Xcode 3.2, click the SCM menu →  Configure SCM for this project. A submenu would appear like below:<br/>
+<img src="http://3.bp.blogspot.com/_DFLTFpvCfQ4/S-zK5sEq-TI/AAAAAAAABLg/7oZuMB7-uzo/s1600/1.png"></p>
+
+<p>Then, Click on the Configure Roots &amp; SCM, a pop-up menu would appear like the one below:<br/>
+<img src="http://2.bp.blogspot.com/_DFLTFpvCfQ4/S-zLYDbHyQI/AAAAAAAABLo/N7BtIuN740c/s1600/2.png"></p>
+
+<p>Click on that and select the proper repository being configured for this project.</p>
+
+<p>Once you've done that, a new column will appear in your project's Group &amp; Files Pane. If the new column is not visible, right-click the header of the Group &amp; Files Pane then, select SCM.  This new column tells you the status of the file in the repository.</p>
+
+<p>For further reference, please see Apple's <a href="http://bit.ly/98ezRt">Xcode Source Management Guide</a>.</p>
+
+<p>Thanks also to Jeff for a good blog on this stuff! Cheers! :)</p>
 ]]></content>
   </entry>
   
