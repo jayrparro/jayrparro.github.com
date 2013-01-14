@@ -2,7 +2,7 @@
 layout: post
 title: Hellow World!
 published: true
-comments: true
+comments: false
 categories: Personal
 ---  
 

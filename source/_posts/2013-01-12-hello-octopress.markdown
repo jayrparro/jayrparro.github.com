@@ -2,8 +2,9 @@
 layout: post
 title: "Hello Octopress!"
 date: 2013-01-12 02:01
-comments: true
+comments: false
 categories: Personal
+
 ---
 
 Happy New Year!  

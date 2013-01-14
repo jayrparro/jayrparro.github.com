@@ -2,7 +2,7 @@
 layout: post
 title: back in the blog... wew!
 published: true
-comments: true
+comments: false
 categories: Personal
 ---  
   

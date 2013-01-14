@@ -2,7 +2,7 @@
 layout: post
 title: Tacx Arcade 1 is released!
 published: true
-comments: true
+comments: false
 categories: GameDev
 
 ---
