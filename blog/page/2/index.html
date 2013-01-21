@@ -9,7 +9,7 @@
   <meta name="author" content="Jayr Parro">
 
   
-  <meta name="description" content="Some facilities/tools that quite helpful in debugging iOS Apps. http://developer.apple.com/library/ios/#technotes/tn2239/_index.html By the way, pls &hellip;">
+  <meta name="description" content="Apple Official Documentation: An iOS application should be internationalized and have a language.lproj directory for each language it supports. In &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,65 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/09/14/localize-the-default-splash-screen-image-in-ios/">Localize the Default Splash Screen Image in iOS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-14T00:00:00+08:00" pubdate data-updated="true">Sep 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="href=%22http://developer.apple.com/library/IOS/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BuildTimeConfiguration/BuildTimeConfiguration.html">Apple Official Documentation:</a></p>
+
+<blockquote><p>An iOS application should be internationalized and have a language.lproj directory for each language it supports. In addition to providing localized versions of your application&rsquo;s custom resources, you can also localize your application icon, launch images, and Settings icon by placing files with the same name in your language-specific project directories. Even if you provide localized versions, however, include a default version of these files at the top level of your application bundle. The default version is used when a specific localization is not available.</p></blockquote>
+
+<p>Procedures: <br/>
+(note: &#8220;X&#8221; stands for either Landscape, Portrait, iPhone, iPad suffixes)</p>
+
+<ol>
+<li>Add the Default-X.png image on your Xcode project. I&#8217;ve put this file under the &#8220;Supporting Files&#8221; group. It should be on the top level of the application bundle</li>
+<li>Click Default-X.png. Then, select the Identity inspector.</li>
+<li>Select the drop down Localization tab. From there, you can select which language to localized for this image.</li>
+<li>First, I&#8217;ve select English. Then, browse to the en.lproj folder put the correct English Default splash screen image</li>
+<li>In my case I&#8217;ve localized it to Russian. Select again the localization tab and click &#8220;+&#8221;, add the Russian language. Then, browse to the rus.lproj folder to put the correct Russian default spash screen image.</li>
+</ol>
+
+
+<p>Pls. do note Localized resources are placed in subdirectories with an ISO 639-1 language abbreviation for a name plus an .lproj suffix. (For example, the en.lproj, fr.lproj, and es.lproj directories contain resources localized for English, French, and Spanish.) For more information, see <a href="http://developer.apple.com/library/IOS/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BuildTimeConfiguration/BuildTimeConfiguration.html#//apple_ref/doc/uid/TP40007072-CH7-SW3">Internationalizing Your Application.</a></p>
+
+<p>Screenshots:</p>
+
+<p><img src="/images/blog_images/Screen_shot_2011-09-15_at_PM_12.15.07.png"><br/>
+<img src="/images/blog_images/Screen_shot_2011-09-15_at_PM_12.18.57.png"></p>
+
+<p>From there, you can find your way! :)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -522,49 +581,6 @@ I&#8217;ve just change the return string to trim whitespaces.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/10/31/uikeyboardtypenumberpad-and-the-missing-return-key/">UIKeyboardTypeNumberPad and the Missing &#8220;Return&#8221; Key</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-10-31T00:00:00+08:00" pubdate data-updated="true">Oct 31<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you have used in your iPhone app that requires keyboard with numeric input, you&#8217;ll observed it&#8217;s missing return/done key. How will you dismiss it?</p>
-
-
-<p>This is a good post and work-around for this issue.&nbsp;</p>
-
-
-<p><a href="http://www.neoos.ch/news/46-development/54-uikeyboardtypenumberpad-and-the-missing-return-key#idc-cover" title="UIKeyboardTypeNumberPad done key" target="_blank">http://www.neoos.ch/news/46-development/54-uikeyboardtypenumberpad-and-the-missing-return-key#idc-cover</a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -582,6 +598,10 @@ I&#8217;ve just change the return string to trim whitespaces.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/22/bands-core-animation-sample/">Bands - Core Animation Sample</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/12/hello-octopress/">Hello Octopress!</a>
       </li>
     
@@ -595,10 +615,6 @@ I&#8217;ve just change the return string to trim whitespaces.</p>
     
       <li class="post">
         <a href="/blog/2012/04/14/git-101/">Git 101</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/08/ipad-as-second-monitor-display/">iPad as Second Monitor Display</a>
       </li>
     
   </ul>
@@ -653,7 +669,7 @@ I&#8217;ve just change the return string to trim whitespaces.</p>
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#f2f2f2' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x000000&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fappstore%27+style%3D%27font-size%3A+11.904761904761905%25%27%3EAppStore%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdebugging%27+style%3D%27font-size%3A+11.904761904761905%25%27%3EDebugging%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdiy%27+style%3D%27font-size%3A+11.904761904761905%25%27%3EDIY%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgamedev%27+style%3D%27font-size%3A+11.904761904761905%25%27%3EGameDev%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+11.904761904761905%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fios%27+style%3D%27font-size%3A+50.0%25%27%3EiOS%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fmobile%27+style%3D%27font-size%3A+11.904761904761905%25%27%3Emobile%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fobjective-c%27+style%3D%27font-size%3A+11.904761904761905%25%27%3EObjective-C%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fpersonal%27+style%3D%27font-size%3A+15.714285714285715%25%27%3EPersonal%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fsvn%27+style%3D%27font-size%3A+11.904761904761905%25%27%3ESVN%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftutorials%27+style%3D%27font-size%3A+11.904761904761905%25%27%3ETutorials%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftwitter%27+style%3D%27font-size%3A+11.904761904761905%25%27%3ETwitter%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fxcode%27+style%3D%27font-size%3A+17.61904761904762%25%27%3EXcode%3C%2Fa%3E+%3C%2Ftags%3E"></span>
+    <span id="tag-cloud"><embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#f2f2f2' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x000000&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fappstore%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EAppStore%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fcore-animation%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ECore+Animation%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdebugging%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EDebugging%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdiy%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EDIY%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgamedev%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EGameDev%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+11.818181818181818%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fios%27+style%3D%27font-size%3A+50.0%25%27%3EiOS%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fmobile%27+style%3D%27font-size%3A+11.818181818181818%25%27%3Emobile%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fobjective-c%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EObjective-C%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fpersonal%27+style%3D%27font-size%3A+15.454545454545453%25%27%3EPersonal%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fsvn%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ESVN%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftutorials%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ETutorials%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftwitter%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ETwitter%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fxcode%27+style%3D%27font-size%3A+17.272727272727273%25%27%3EXcode%3C%2Fa%3E+%3C%2Ftags%3E"></span>
 </section>
 
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-01-15T01:24:36+08:00</updated>
+  <updated>2013-01-22T02:25:00+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -12,6 +12,229 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bands - Core Animation Sample]]></title>
+    <link href="http://jayrparro.github.com/blog/2013/01/22/bands-core-animation-sample/"/>
+    <updated>2013-01-22T00:43:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2013/01/22/bands-core-animation-sample</id>
+    <content type="html"><![CDATA[<p>A simple animation project using Core Animation. It can be use in your App&#8217;s Splash Screen transition animation.</p>
+
+<h4>The Code</h4>
+
+<p>To use Core Animation APIs in your project, you need to add the QuartzCore framework. So, in  your Xcode project, go to Target-> Build Phases-> Link Binary With Libraries-> Add QuartzCore.framework</p>
+
+<p><img src="http://jayrparro.github.com/images/blog_images/addQuartzCore.png"></p>
+
+<p>Then, in <code>ViewController.h</code>:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="err">\#</span><span class="n">import</span> <span class="o">&lt;</span><span class="n">QuartzCore</span><span class="o">/</span><span class="n">QuartzCore</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In <code>ViewController.m</code> file:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">CALayer</span> <span class="o">*</span><span class="n">bgLayer</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>- (void)viewDidLoad</code> method:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">bgLayer</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CALayer</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">bgLayer</span> <span class="nl">setBounds:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">)];</span> <span class="c1">// set size</span>
+</span><span class='line'><span class="p">[</span><span class="n">bgLayer</span> <span class="nl">setPosition:</span><span class="n">CGPointMake</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">)];</span> <span class="c1">// set position</span>
+</span><span class='line'><span class="p">[</span><span class="n">bgLayer</span> <span class="nl">setBackgroundColor:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">].</span><span class="n">CGColor</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">[</span><span class="n">bgLayer</span> <span class="nl">setContents:</span><span class="p">(</span><span class="kt">id</span><span class="p">)[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;image1.jpg&quot;</span><span class="p">].</span><span class="n">CGImage</span><span class="p">];</span>
+</span><span class='line'><span class="c1">// [bgLayer setContentsGravity:kCAGravityResizeAspect];</span>
+</span><span class='line'><span class="p">[[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layer</span><span class="p">]</span> <span class="nl">addSublayer:</span><span class="n">bgLayer</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span> <span class="nl">performSelector:</span><span class="k">@selector</span><span class="p">(</span><span class="n">setupBandsAndAnimation</span><span class="p">)</span> <span class="nl">withObject:</span><span class="nb">nil</span> <span class="nl">afterDelay:</span><span class="mf">1.0</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the above code, we&#8217;ve setup a <code>CALayer</code>, <em>bgLayer</em>, that will hold our contents which is an <code>UIImage</code>. Then, we set its properties and add this layer to the view. After 1 second, we call the method selector <code>setupBandsAndAnimation</code> to do the splitting of the bands and its animation.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">CABasicAnimation</span> <span class="o">*</span><span class="p">)</span><span class="nf">slideUpAnimation</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>   <span class="c1">//setup animation  </span>
+</span><span class='line'>   <span class="n">CABasicAnimation</span> <span class="o">*</span><span class="n">slideUpAnim</span> <span class="o">=</span> <span class="p">[</span><span class="n">CABasicAnimation</span> <span class="nl">animationWithKeyPath:</span><span class="s">@&quot;position.y&quot;</span><span class="p">];</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">slideUpAnim</span> <span class="nl">setToValue:</span><span class="p">[</span><span class="n">NSNumber</span> <span class="nl">numberWithFloat:</span><span class="o">-</span><span class="n">bgLayer</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">]];</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">slideUpAnim</span> <span class="nl">setDuration:</span><span class="mf">1.0</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">CAMediaTimingFunction</span> <span class="o">*</span><span class="n">tf</span> <span class="o">=</span> <span class="p">[</span><span class="n">CAMediaTimingFunction</span> <span class="nl">functionWithName:</span><span class="n">kCAMediaTimingFunctionEaseInEaseOut</span><span class="p">];</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">slideUpAnim</span> <span class="nl">setTimingFunction:</span><span class="n">tf</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="k">return</span> <span class="n">slideUpAnim</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">CABasicAnimation</span> <span class="o">*</span><span class="p">)</span><span class="nf">slideDownAnimation</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>   <span class="c1">//setup animation</span>
+</span><span class='line'>   <span class="n">CABasicAnimation</span> <span class="o">*</span><span class="n">slideDownAnim</span> <span class="o">=</span> <span class="p">[</span><span class="n">CABasicAnimation</span> <span class="nl">animationWithKeyPath:</span><span class="s">@&quot;position.y&quot;</span><span class="p">];</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">slideDownAnim</span> <span class="nl">setToValue:</span><span class="p">[</span><span class="n">NSNumber</span> <span class="nl">numberWithFloat:</span><span class="n">bgLayer</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="o">*</span><span class="mi">2</span><span class="p">]];</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">slideDownAnim</span> <span class="nl">setDuration:</span><span class="mf">1.0</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">CAMediaTimingFunction</span> <span class="o">*</span><span class="n">tf</span> <span class="o">=</span> <span class="p">[</span><span class="n">CAMediaTimingFunction</span> <span class="nl">functionWithName:</span><span class="n">kCAMediaTimingFunctionEaseInEaseOut</span><span class="p">];</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">slideDownAnim</span> <span class="nl">setTimingFunction:</span><span class="n">tf</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="k">return</span> <span class="n">slideDownAnim</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the above code, we&#8217;ve setup <code>CABasicAnimation</code> for sliding up &amp; down. We just need to modify the <code>position.y</code> which is the destination value of the <em>bgLayer</em>.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupBandsAndAnimation</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">NSUInteger</span> <span class="n">nNumBands</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">bands</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableArray</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithCapacity:</span><span class="n">nNumBands</span><span class="p">];</span>
+</span><span class='line'>  <span class="n">CABasicAnimation</span> <span class="o">*</span><span class="n">slideUpAnim</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span> <span class="n">slideUpAnimation</span><span class="p">];</span>
+</span><span class='line'>  <span class="n">CABasicAnimation</span> <span class="o">*</span><span class="n">slideDownAnim</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span> <span class="n">slideDownAnimation</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">[</span><span class="n">bgLayer</span> <span class="n">removeFromSuperlayer</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">CATransaction</span> <span class="n">begin</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">[</span><span class="n">CATransaction</span> <span class="nl">setCompletionBlock:</span><span class="o">^</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">bands</span> <span class="nl">enumerateObjectsUsingBlock:</span><span class="o">^</span><span class="p">(</span><span class="kt">id</span> <span class="n">obj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="o">*</span><span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="p">[</span><span class="n">obj</span> <span class="nl">setDelegate:</span><span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>              <span class="p">[</span><span class="n">obj</span> <span class="n">removeFromSuperlayer</span><span class="p">];</span>
+</span><span class='line'>          <span class="p">}];</span>
+</span><span class='line'>    <span class="p">}];</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">CGSize</span> <span class="n">layerSize</span> <span class="o">=</span> <span class="n">bgLayer</span><span class="p">.</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">CGFloat</span> <span class="n">bandWidth</span> <span class="o">=</span> <span class="n">layerSize</span><span class="p">.</span><span class="n">width</span> <span class="o">/</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="n">nNumBands</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">nNumBands</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="n">CALayer</span> <span class="o">*</span><span class="n">band</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CALayer</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>   <span class="n">band</span><span class="p">.</span><span class="n">masksToBounds</span> <span class="o">=</span> <span class="n">YES</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">CGFloat</span> <span class="n">xOffset</span> <span class="o">=</span> <span class="mf">1.f</span> <span class="o">/</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="n">nNumBands</span><span class="p">;</span>
+</span><span class='line'>   <span class="n">band</span><span class="p">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mf">0.f</span><span class="p">,</span> <span class="mf">0.f</span><span class="p">,</span> <span class="n">bandWidth</span><span class="p">,</span> <span class="n">layerSize</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+</span><span class='line'>   <span class="n">band</span><span class="p">.</span><span class="n">contents</span> <span class="o">=</span> <span class="n">bgLayer</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
+</span><span class='line'>   <span class="n">band</span><span class="p">.</span><span class="n">contentsGravity</span> <span class="o">=</span> <span class="n">kCAGravityCenter</span><span class="p">;</span>
+</span><span class='line'>   <span class="n">band</span><span class="p">.</span><span class="n">contentsRect</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">xOffset</span> <span class="o">*</span> <span class="n">n</span> <span class="p">,</span> <span class="mf">0.f</span><span class="p">,</span> <span class="n">xOffset</span><span class="p">,</span> <span class="mf">1.f</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">CGPoint</span> <span class="n">bandOrigin</span> <span class="o">=</span> <span class="n">bgLayer</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">;</span>
+</span><span class='line'>   <span class="n">bandOrigin</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">bandOrigin</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">bandWidth</span> <span class="o">*</span> <span class="n">n</span><span class="p">);</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">band</span> <span class="nl">setValue:</span><span class="p">[</span><span class="n">NSValue</span> <span class="nl">valueWithCGPoint:</span><span class="n">bandOrigin</span><span class="p">]</span> <span class="nl">forKeyPath:</span><span class="s">@&quot;frame.origin&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">layer</span> <span class="nl">addSublayer:</span><span class="n">band</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="p">[</span><span class="n">band</span> <span class="nl">addAnimation:</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">?</span> <span class="n">slideUpAnim</span> <span class="o">:</span> <span class="n">slideDownAnim</span> <span class="nl">forKey:</span><span class="nb">nil</span><span class="p">];</span>
+</span><span class='line'>   <span class="p">[</span><span class="n">bands</span> <span class="nl">addObject:</span><span class="n">band</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">[</span><span class="n">CATransaction</span> <span class="n">commit</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the above code, we specify how many bands that it need to split up (<em>nNumBands</em>). Then, we&#8217;ve called the 2 <code>CABasicAnimation</code> we setup earlier. We iterate on the number of small bands that&#8217;s been split up, created another <code>CaLayer</code> object and setting up its properties and apply the animation. After the animation is finished, we remove the layer, <code>[obj removeFromSuperLayer]</code>.</p>
+
+<h4>Sample Output</h4>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/X1dexZH2RVA?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+<p></p>
+
+<br/>
+
+
+<p>You can get the code <a href="https://github.com/jayrparro/Labs/tree/master/Bands">here</a>.</p>
+
+<p>Happy Coding! :)</p>
+
+<br/>  
+
+
+<p>PS: Further reading:<br/>
+<a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html">Core Animation Programming Guide</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello Octopress!]]></title>
@@ -556,22 +779,6 @@ from <strong>https://twitter.com/</strong> to <strong>https://api.twitter.com/</
 I&#8217;ve just change the return string to trim whitespaces.</p>
 
 <p>Cheers!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[UIKeyboardTypeNumberPad and the missing "return" key]]></title>
-    <link href="http://jayrparro.github.com/blog/2010/10/31/uikeyboardtypenumberpad-and-the-missing-return-key/"/>
-    <updated>2010-10-31T00:00:00+08:00</updated>
-    <id>http://jayrparro.github.com/blog/2010/10/31/uikeyboardtypenumberpad-and-the-missing-return-key</id>
-    <content type="html"><![CDATA[<p>If you have used in your iPhone app that requires keyboard with numeric input, you&#8217;ll observed it&#8217;s missing return/done key. How will you dismiss it?</p>
-
-
-<p>This is a good post and work-around for this issue.&nbsp;</p>
-
-
-<p><a href="http://www.neoos.ch/news/46-development/54-uikeyboardtypenumberpad-and-the-missing-return-key#idc-cover" title="UIKeyboardTypeNumberPad done key" target="_blank">http://www.neoos.ch/news/46-development/54-uikeyboardtypenumberpad-and-the-missing-return-key#idc-cover</a></p>
-
 ]]></content>
   </entry>
   
