@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Personal | Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/blog/categories/personal/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-01-22T02:25:00+08:00</updated>
+  <updated>2013-02-17T23:56:25+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -20,11 +20,19 @@
     <id>http://jayrparro.github.com/blog/2013/01/12/hello-octopress</id>
     <content type="html"><![CDATA[<p>Happy New Year!</p>
 
-<p>A New Year, a new blog. I've decided to move my personal blog from Posterous to Octopress. I like the simplicity of Octopress and it's really easy to setup and deploy. Aside from that, using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> make it very handy writing a blog.</p>
+<p>A New Year, a new blog. I've decided to move my personal blog from <a href="http://posterous.com/">Posterous</a> to <a href="http://octopress.org/">Octopress</a>. I like the simplicity of Octopress and it's really easy to setup and deploy. Aside from that, using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> make it very handy writing a blog.</p>
 
 <p>Over time, I'll try to maintain this site and evolve with things that I have already done, things that I have to share and accumulate more experiences in the future.</p>
 
 <p>Happy Coding! :)</p>
+
+<hr />
+
+<h4>[UPDATE] 02/17/2013</h4>
+
+<p>Posterous is turning off on April 30, 2013. No wonder.<br/>
+For those who haven't moved from Posterous yet, it's time to back-up your data.<br/>
+See their blog <a href="http://blog.posterous.com/thanks-from-posterous">here</a>.</p>
 ]]></content>
   </entry>
   
