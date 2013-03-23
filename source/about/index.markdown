@@ -6,9 +6,11 @@ sharing: true
 footer: true
 ---  
     
-Hi, there! I'm **Leonardo Parro Jr.**, that's my real name. Most of my friends call me Leo/Jack/Jayr, so don't be confused! ;)   
+Hi, there! I'm **Leonardo Parro Jr.**, that's my real name. Most of my friends call me Leo/Jack/Jayr, so don't be confused! ;-)   
   
-I'm an iOS Developer and currently working in one of the global digital agency based in Sunny Singapore.  
+I'm an iOS Developer and currently working in one of the global digital agency based in Sunny Singapore.    
+  
+I like building stuffs (apps, games, electronics) whatever it fascinates me. And, yeah, hoping to meet you… :-)
 
 ---
 ###Contact Me
