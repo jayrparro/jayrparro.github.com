@@ -4,7 +4,7 @@
   <title><![CDATA[Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-02-17T23:56:25+08:00</updated>
+  <updated>2013-03-23T22:54:04+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Homebrew, RVM, & Ruby 1.9.3]]></title>
+    <link href="http://jayrparro.github.com/blog/2013/03/23/installing-homebrew/"/>
+    <updated>2013-03-23T19:47:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2013/03/23/installing-homebrew</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been doing Ruby on Rails recently and setting its configuration on Mac OSX Mountain Lion with Xcode 4.6 installed is bit of a pain.</p>
+
+<p>If you want to update to the latest stable version of Ruby, which is v1.9.3 as of now, you&#8217;d better install first - <a href="http://mxcl.github.com/homebrew/">Homebrew</a> and <a href="https://rvm.io/">Ruby Version Manager (RVM)</a>.</p>
+
+<p>This <a href="http://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/">tutorial</a> from Moncef Belyamani, I&#8217;ve found it very useful.</p>
+
+<p>A note to self.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iOS Programming Workshop]]></title>
+    <link href="http://jayrparro.github.com/blog/2013/03/02/ios-programming-workshop/"/>
+    <updated>2013-03-02T21:06:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2013/03/02/ios-programming-workshop</id>
+    <content type="html"><![CDATA[<p>Spending my whole-day weekend volunteering as a Coach/Trainer for the iOS Programming Workshop organized by Elisha Tan of <a href="https://secure.learnemy.com/">Learnemy</a> and our group, <a href="http://iosdevscout.com/">iOSDevScout</a>, that&#8217;s being held in <a href="http://www2.blk71.com/">Plug-In@Blk71</a>. The main speaker is <a href="https://twitter.com/subhransu">Subhransu Behera</a>.</p>
+
+<p>I&#8217;m surprise with the number of people of different ages &amp; races, that show up in the workshop eager to learn iOS Development. Tech scene in Singapore is so vibrant!</p>
+
+<p>Here&#8217;s the scene of the iOS Programming workshop:</p>
+
+<p><img src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash3/13072_10200293171505113_763217320_n.jpg" alt="pic" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bands - Core Animation Sample]]></title>
@@ -715,78 +745,6 @@ from <strong>https://twitter.com/</strong> to <strong>https://api.twitter.com/</
 
 <p /><div>Happy coding! :D</div>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Setting iPhone application build versions]]></title>
-    <link href="http://jayrparro.github.com/blog/2011/01/11/setting-iphone-application-build-versions/"/>
-    <updated>2011-01-11T00:00:00+08:00</updated>
-    <id>http://jayrparro.github.com/blog/2011/01/11/setting-iphone-application-build-versions</id>
-    <content type="html"><![CDATA[<div>Setting iPhone application build versions and automating the build versioning process using&nbsp;<a href="http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man8/agvtool.8.html">agvtool</a></div>
-
-
-<p /><a href="http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html">http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html</a><p /><p /><div>Cheers!</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Strip HTML Tag in NSString]]></title>
-    <link href="http://jayrparro.github.com/blog/2010/11/28/strip-html-tag-in-nsstring/"/>
-    <updated>2010-11-28T00:00:00+08:00</updated>
-    <id>http://jayrparro.github.com/blog/2010/11/28/strip-html-tag-in-nsstring</id>
-    <content type="html"><![CDATA[<p>This is a handy method to strip the HTML Tags in NSString object.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">+</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">flattenHTML:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">html</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="n">NSScanner</span> <span class="o">*</span><span class="n">thescanner</span><span class="p">;</span>
-</span><span class='line'>  <span class="n">NSString</span> <span class="o">*</span><span class="n">text</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-</span><span class='line'>  <span class="n">thescanner</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSScanner</span> <span class="nl">scannerWithString:</span><span class="n">html</span><span class="p">];</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="k">while</span> <span class="p">([</span><span class="n">thescanner</span> <span class="n">isAtEnd</span><span class="p">]</span> <span class="o">==</span> <span class="n">NO</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">//find start of tag</span>
-</span><span class='line'>      <span class="p">[</span><span class="n">thescanner</span> <span class="nl">scanUpToString:</span><span class="s">@&quot;&lt;&quot;</span> <span class="nl">intoString:</span><span class="nb">nil</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="c1">//find end of tag</span>
-</span><span class='line'>      <span class="p">[</span><span class="n">thescanner</span> <span class="nl">scanUpToString:</span><span class="s">@&quot;&gt;&quot;</span> <span class="nl">intoString:</span><span class="o">&amp;</span><span class="n">text</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="c1">//replace the found tag with a space</span>
-</span><span class='line'>       <span class="c1">//(you can filter multi-spaces out later if you wish)</span>
-</span><span class='line'>      <span class="n">html</span> <span class="o">=</span> <span class="p">[</span><span class="n">html</span> <span class="nl">stringByReplacingOccurrencesOfString:</span><span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="s">@&quot;%@&gt;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">]</span> <span class="nl">withString:</span><span class="s">@&quot;&quot;</span><span class="p">];</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>   <span class="c1">// Trimmed return</span>
-</span><span class='line'>   <span class="k">return</span> <span class="p">[</span><span class="n">html</span> <span class="nl">stringByTrimmingCharactersInSet:</span><span class="p">[</span><span class="n">NSCharacterSet</span> <span class="n">whitespaceCharacterSet</span><span class="p">]];</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Thanks to the original <a href="http://rudis.net/content/2009/01/21/flatten-html-content-ie-strip-tags-cocoaobjective-c">poster.</a><br/>
-I&#8217;ve just change the return string to trim whitespaces.</p>
-
-<p>Cheers!</p>
 ]]></content>
   </entry>
   

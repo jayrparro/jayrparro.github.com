@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: RVM | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/rvm/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-03-23T22:54:04+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Homebrew, RVM, & Ruby 1.9.3]]></title>
+    <link href="http://jayrparro.github.com/blog/2013/03/23/installing-homebrew/"/>
+    <updated>2013-03-23T19:47:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2013/03/23/installing-homebrew</id>
+    <content type="html"><![CDATA[<p>I've been doing Ruby on Rails recently and setting its configuration on Mac OSX Mountain Lion with Xcode 4.6 installed is bit of a pain.</p>
+
+<p>If you want to update to the latest stable version of Ruby, which is v1.9.3 as of now, you'd better install first - <a href="http://mxcl.github.com/homebrew/">Homebrew</a> and <a href="https://rvm.io/">Ruby Version Manager (RVM)</a>.</p>
+
+<p>This <a href="http://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/">tutorial</a> from Moncef Belyamani, I've found it very useful.</p>
+
+<p>A note to self.</p>
+]]></content>
+  </entry>
+  
+</feed>

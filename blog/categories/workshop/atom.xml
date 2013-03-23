@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: workshop | Jayr Parro]]></title>
+  <link href="http://jayrparro.github.com/blog/categories/workshop/atom.xml" rel="self"/>
+  <link href="http://jayrparro.github.com/"/>
+  <updated>2013-03-23T22:54:04+08:00</updated>
+  <id>http://jayrparro.github.com/</id>
+  <author>
+    <name><![CDATA[Jayr Parro]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[iOS Programming Workshop]]></title>
+    <link href="http://jayrparro.github.com/blog/2013/03/02/ios-programming-workshop/"/>
+    <updated>2013-03-02T21:06:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2013/03/02/ios-programming-workshop</id>
+    <content type="html"><![CDATA[<p>Spending my whole-day weekend volunteering as a Coach/Trainer for the iOS Programming Workshop organized by Elisha Tan of <a href="https://secure.learnemy.com/">Learnemy</a> and our group, <a href="http://iosdevscout.com/">iOSDevScout</a>, that's being held in <a href="http://www2.blk71.com/">Plug-In@Blk71</a>. The main speaker is <a href="https://twitter.com/subhransu">Subhransu Behera</a>.</p>
+
+<p>I'm surprise with the number of people of different ages &amp; races, that show up in the workshop eager to learn iOS Development. Tech scene in Singapore is so vibrant!</p>
+
+<p>Here's the scene of the iOS Programming workshop:</p>
+
+<p><img src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash3/13072_10200293171505113_763217320_n.jpg" alt="pic" /></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -9,7 +9,8 @@
   <meta name="author" content="Jayr Parro">
 
   
-  <meta name="description" content="Apple Official Documentation: An iOS application should be internationalized and have a language.lproj directory for each language it supports. In &hellip;">
+  <meta name="description" content="A good blog looking Facetime under the hood.&nbsp; http://www.packetstan.com/2010/07/special-look-face-time-part-1.html
+http://www.packetstan.com/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +75,100 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/18/special-look-on-facetime/">Special Look on Facetime</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-18T00:00:00+08:00" pubdate data-updated="true">Oct 18<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A good blog looking Facetime under the hood.&nbsp;</p>
+
+
+<p><a href="http://www.packetstan.com/2010/07/special-look-face-time-part-1.html">http://www.packetstan.com/2010/07/special-look-face-time-part-1.html</a>
+<a href="http://www.packetstan.com/2010/07/special-look-face-time-part-2-sip-and.html">http://www.packetstan.com/2010/07/special-look-face-time-part-2-sip-and.html</a><br/>
+<a href="http://www.packetstan.com/2010/07/special-look-face-time-part-3-call.html">http://www.packetstan.com/2010/07/special-look-face-time-part-3-call.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/18/invoke-facetime-in-app/">Invoke Facetime In-app</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-18T00:00:00+08:00" pubdate data-updated="true">Oct 18<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Currently, Facetime API is not yet opened as of this writing…<br/>
+For the time being, you can invoke Facetime initiating calls through URL:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'>
+</span><span class='line'><span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString:</span><span class="s">@&quot;facetime://+123456789&quot;</span><span class="p">];</span>
+</span><span class='line'><span class="p">[[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">]</span> <span class="nl">openURL:</span><span class="n">url</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>+123456789 - is the Facetime phone number</li>
+</ul>
+
+
+<p>Hope Facetime API will be open soon&#8230; ;)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -455,132 +550,6 @@ from <strong>https://twitter.com/</strong> to <strong>https://api.twitter.com/</
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/11/setting-iphone-application-build-versions/">Setting iPhone Application Build Versions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-11T00:00:00+08:00" pubdate data-updated="true">Jan 11<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div>Setting iPhone application build versions and automating the build versioning process using&nbsp;<a href="http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man8/agvtool.8.html">agvtool</a></div>
-
-
-<p /><a href="http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html">http://useyourloaf.com/blog/2010/8/18/setting-iphone-application-build-versions.html</a><p /><p /><div>Cheers!</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/11/28/strip-html-tag-in-nsstring/">Strip HTML Tag in NSString</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-28T00:00:00+08:00" pubdate data-updated="true">Nov 28<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is a handy method to strip the HTML Tags in NSString object.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">+</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">flattenHTML:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">html</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="n">NSScanner</span> <span class="o">*</span><span class="n">thescanner</span><span class="p">;</span>
-</span><span class='line'>  <span class="n">NSString</span> <span class="o">*</span><span class="n">text</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-</span><span class='line'>  <span class="n">thescanner</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSScanner</span> <span class="nl">scannerWithString:</span><span class="n">html</span><span class="p">];</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="k">while</span> <span class="p">([</span><span class="n">thescanner</span> <span class="n">isAtEnd</span><span class="p">]</span> <span class="o">==</span> <span class="n">NO</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">//find start of tag</span>
-</span><span class='line'>      <span class="p">[</span><span class="n">thescanner</span> <span class="nl">scanUpToString:</span><span class="s">@&quot;&lt;&quot;</span> <span class="nl">intoString:</span><span class="nb">nil</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="c1">//find end of tag</span>
-</span><span class='line'>      <span class="p">[</span><span class="n">thescanner</span> <span class="nl">scanUpToString:</span><span class="s">@&quot;&gt;&quot;</span> <span class="nl">intoString:</span><span class="o">&amp;</span><span class="n">text</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="c1">//replace the found tag with a space</span>
-</span><span class='line'>       <span class="c1">//(you can filter multi-spaces out later if you wish)</span>
-</span><span class='line'>      <span class="n">html</span> <span class="o">=</span> <span class="p">[</span><span class="n">html</span> <span class="nl">stringByReplacingOccurrencesOfString:</span><span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="s">@&quot;%@&gt;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">]</span> <span class="nl">withString:</span><span class="s">@&quot;&quot;</span><span class="p">];</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>   <span class="c1">// Trimmed return</span>
-</span><span class='line'>   <span class="k">return</span> <span class="p">[</span><span class="n">html</span> <span class="nl">stringByTrimmingCharactersInSet:</span><span class="p">[</span><span class="n">NSCharacterSet</span> <span class="n">whitespaceCharacterSet</span><span class="p">]];</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Thanks to the original <a href="http://rudis.net/content/2009/01/21/flatten-html-content-ie-strip-tags-cocoaobjective-c">poster.</a><br/>
-I&#8217;ve just change the return string to trim whitespaces.</p>
-
-<p>Cheers!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -598,6 +567,14 @@ I&#8217;ve just change the return string to trim whitespaces.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/03/23/installing-homebrew/">Installing Homebrew, RVM, & Ruby 1.9.3</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/02/ios-programming-workshop/">iOS Programming Workshop</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/22/bands-core-animation-sample/">Bands - Core Animation Sample</a>
       </li>
     
@@ -607,14 +584,6 @@ I&#8217;ve just change the return string to trim whitespaces.</p>
     
       <li class="post">
         <a href="/blog/2012/07/28/adding-drop-shadow-effect-in-a-view/">Adding drop shadow effect in a View</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/17/stretchable-images-in-ios-5/">Stretchable Images in iOS 5</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/04/14/git-101/">Git 101</a>
       </li>
     
   </ul>
@@ -669,7 +638,7 @@ I&#8217;ve just change the return string to trim whitespaces.</p>
 
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#f2f2f2' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x000000&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fappstore%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EAppStore%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fcore-animation%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ECore+Animation%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdebugging%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EDebugging%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdiy%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EDIY%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgamedev%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EGameDev%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+11.818181818181818%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fios%27+style%3D%27font-size%3A+50.0%25%27%3EiOS%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fmobile%27+style%3D%27font-size%3A+11.818181818181818%25%27%3Emobile%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fobjective-c%27+style%3D%27font-size%3A+11.818181818181818%25%27%3EObjective-C%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fpersonal%27+style%3D%27font-size%3A+15.454545454545453%25%27%3EPersonal%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fsvn%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ESVN%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftutorials%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ETutorials%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftwitter%27+style%3D%27font-size%3A+11.818181818181818%25%27%3ETwitter%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fxcode%27+style%3D%27font-size%3A+17.272727272727273%25%27%3EXcode%3C%2Fa%3E+%3C%2Ftags%3E"></span>
+    <span id="tag-cloud"><embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#f2f2f2' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x000000&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fappstore%27+style%3D%27font-size%3A+11.73913043478261%25%27%3EAppStore%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fcore-animation%27+style%3D%27font-size%3A+11.73913043478261%25%27%3ECore+Animation%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdebugging%27+style%3D%27font-size%3A+11.73913043478261%25%27%3EDebugging%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fdiy%27+style%3D%27font-size%3A+11.73913043478261%25%27%3EDIY%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgamedev%27+style%3D%27font-size%3A+11.73913043478261%25%27%3EGameDev%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fgit%27+style%3D%27font-size%3A+11.73913043478261%25%27%3Egit%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fhomebrew%27+style%3D%27font-size%3A+11.73913043478261%25%27%3EHomebrew%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fios%27+style%3D%27font-size%3A+50.0%25%27%3EiOS%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fiosdevscout%27+style%3D%27font-size%3A+11.73913043478261%25%27%3EiOSDevScout%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fmobile%27+style%3D%27font-size%3A+11.73913043478261%25%27%3Emobile%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fobjective-c%27+style%3D%27font-size%3A+11.73913043478261%25%27%3EObjective-C%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fpersonal%27+style%3D%27font-size%3A+15.217391304347826%25%27%3EPersonal%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fruby%27+style%3D%27font-size%3A+11.73913043478261%25%27%3ERuby%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Frvm%27+style%3D%27font-size%3A+11.73913043478261%25%27%3ERVM%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fsingapore%27+style%3D%27font-size%3A+11.73913043478261%25%27%3ESingapore%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fsvn%27+style%3D%27font-size%3A+11.73913043478261%25%27%3ESVN%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftutorials%27+style%3D%27font-size%3A+11.73913043478261%25%27%3ETutorials%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Ftwitter%27+style%3D%27font-size%3A+11.73913043478261%25%27%3ETwitter%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fworkshop%27+style%3D%27font-size%3A+11.73913043478261%25%27%3Eworkshop%3C%2Fa%3E+%3Ca+href%3D%27http%3A%2F%2Fjayrparro.github.com%2Fblog%2Fcategories%2Fxcode%27+style%3D%27font-size%3A+16.956521739130434%25%27%3EXcode%3C%2Fa%3E+%3C%2Ftags%3E"></span>
 </section>
 
 

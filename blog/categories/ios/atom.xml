@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Jayr Parro]]></title>
   <link href="http://jayrparro.github.com/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://jayrparro.github.com/"/>
-  <updated>2013-02-17T23:56:25+08:00</updated>
+  <updated>2013-03-23T22:54:04+08:00</updated>
   <id>http://jayrparro.github.com/</id>
   <author>
     <name><![CDATA[Jayr Parro]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iOS Programming Workshop]]></title>
+    <link href="http://jayrparro.github.com/blog/2013/03/02/ios-programming-workshop/"/>
+    <updated>2013-03-02T21:06:00+08:00</updated>
+    <id>http://jayrparro.github.com/blog/2013/03/02/ios-programming-workshop</id>
+    <content type="html"><![CDATA[<p>Spending my whole-day weekend volunteering as a Coach/Trainer for the iOS Programming Workshop organized by Elisha Tan of <a href="https://secure.learnemy.com/">Learnemy</a> and our group, <a href="http://iosdevscout.com/">iOSDevScout</a>, that's being held in <a href="http://www2.blk71.com/">Plug-In@Blk71</a>. The main speaker is <a href="https://twitter.com/subhransu">Subhransu Behera</a>.</p>
+
+<p>I'm surprise with the number of people of different ages &amp; races, that show up in the workshop eager to learn iOS Development. Tech scene in Singapore is so vibrant!</p>
+
+<p>Here's the scene of the iOS Programming workshop:</p>
+
+<p><img src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash3/13072_10200293171505113_763217320_n.jpg" alt="pic" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bands - Core Animation Sample]]></title>
@@ -420,44 +435,6 @@ You use this method to add cap insets to an image or to change the existing cap 
 <p><img src="/images/blog_images/IMG_1492.JPG.scaled1000.jpg"></p>
 
 <p><img src="/images/blog_images/IMG_1493.JPG.scaled1000.jpg"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DLog – an NSLog replacement]]></title>
-    <link href="http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement/"/>
-    <updated>2012-01-18T00:00:00+08:00</updated>
-    <id>http://jayrparro.github.com/blog/2012/01/18/dlog-an-nslog-replacement</id>
-    <content type="html"><![CDATA[<p>It’s more convenient and will add to app performance to log some statements only in Debug mode and avoiding them in release mode.</p>
-
-<p>Plus, we can see in debug console the function &amp; line numbers being logged.</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#ifdef DEBUG&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">#</span><span class="n">define</span> <span class="n">DLog</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...)</span> <span class="n">NSLog</span><span class="p">((</span><span class="s">@&quot;%s [Line %d] &quot;</span> <span class="n">fmt</span><span class="p">),</span> <span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="n">PRETTY_FUNCTION</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="n">LINE</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;</span><span class="p">,</span> <span class="err">##</span><span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="n">VA_ARGS</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;</span><span class="p">);</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span>
-</span><span class='line'><span class="cp">#else&lt;br/&gt;</span>
-</span><span class='line'><span class="cp">#define DLog(...)&lt;br/&gt;</span>
-</span><span class='line'><span class="cp">#endif&lt;br/&gt;</span>
-</span><span class='line'><span class="cp">#define ALog(...) NSLog(&lt;strong&gt;VA_ARGS&lt;/strong&gt;)</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>First add the following to the _Prefix.pch file in your Xcode project: <br/>
-In the project’s Debug build configuration, set preprocessor macro <strong>DEBUG=1</strong></p>
-
-<p>Note:<br/>
-DLog – log only in debug mode<br/>
-ALog – log for both configurations (debug &amp; release)</p>
-
-<p>More info here:<br/>
-<a href="http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158">http://kuoi.com/~kamikaze/read.php?topic=Cocoa&amp;id=158</a>
-<a href="http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/">http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/</a></p>
 ]]></content>
   </entry>
   
