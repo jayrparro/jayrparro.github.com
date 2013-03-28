@@ -6,11 +6,12 @@ sharing: true
 footer: true
 ---  
     
-Hi, there! I'm **Leonardo Parro Jr.**, that's my real name. Most of my friends call me Leo/Jack/Jayr, so don't be confused! ;-)   
+Hi, there! I'm **Leonardo Parro Jr.**, aka Jayr.
   
-I'm an iOS Developer and currently working in one of the global digital agency based in Sunny Singapore.    
+I'm an iOS Developer and currently working for [POSSIBLE](http://www.possible.com), a global digital agency.
   
-I like building stuffs (apps, games, electronics) whatever it fascinates me. And, yeah, hoping to meet you… :-)
+I build stuffs (apps, games, electronics) whatever it fascinates me.  
+And, love to meet real people. :-)
 
 ---
 ###Contact Me
@@ -20,6 +21,6 @@ I like building stuffs (apps, games, electronics) whatever it fascinates me. And
 ---  
 ###About this blog  
   
-This blog is built and published with [Octopress](http://octopress.org/). Every article is crafted in [Markdown](http://daringfireball.net/projects/markdown/) and its currently (temporarily) hosted in [GitHub](github.com). All views expressed on this blog are my own and don't reflect the views of my employer.
+This blog is built and published with [Octopress](http://octopress.org/). Every article is crafted in [Markdown](http://daringfireball.net/projects/markdown/) and its currently (temporarily) hosted in [GitHub](github.com). This blog is to share my knowledge, ideas, rants in tech space and in life. All views expressed on this blog are my own and don't reflect the views of my employer.
   
 
